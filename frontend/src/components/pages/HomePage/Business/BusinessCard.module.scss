@@ -1,0 +1,58 @@
+.card {
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border-radius: 1rem;
+  height: 480px;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: rgba(86, 20, 208, 0.25) 5px 5px 15px;
+  }
+}
+
+.image {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.container {
+  height: 50%;
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.category,
+.contactPerson {
+  color: $main-color;
+}
+
+.category {
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  background-color: #e5ddfb;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+.name {
+  font-size: 1.2rem;
+}
+
+.contactPerson {
+  font-size: 1.1rem;
+}
+
+.address {
+  color: #a8a8a8;
+}

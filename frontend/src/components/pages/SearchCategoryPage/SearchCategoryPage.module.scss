@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: $main-container-padding-mobile;
+}
+
+.title {
+  margin-bottom: 2rem;
+}
+
+.categoryTitle {
+  color: $main-color;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: $layout-breakpoint-small) {
+  .container {
+    flex-direction: row;
+    padding: $main-container-padding;
+  }
+
+  .leftSide {
+    flex: 1;
+  }
+
+  .rightSide {
+    flex: 2;
+  }
+}
+
+@media (min-width: $layout-breakpoint-large) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

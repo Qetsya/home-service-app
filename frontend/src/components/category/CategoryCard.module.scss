@@ -1,0 +1,57 @@
+.card {
+  background-color: #f2eefd;
+
+  width: 148px;
+  height: 120px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 2px solid #e6e6e6;
+  border-radius: 0.5rem;
+  border: none;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+
+  .title {
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #9977ef;
+  }
+
+  &:hover,
+  &.activeCard {
+    background-color: #f7f4fd;
+    border-color: #beaaf5;
+
+    .title {
+      color: $main-color;
+    }
+  }
+}
+
+.icon {
+  mask-size: 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.cardVertical {
+  background-color: white;
+  border: 2px solid #e6e6e6;
+  border-radius: 1rem;
+
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 0.5rem;
+
+  min-width: 180px;
+  width: 100%;
+  height: 84px;
+}
