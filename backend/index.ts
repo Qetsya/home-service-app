@@ -6,11 +6,14 @@ import { bookingRouter } from "./src/routes/bookingRouter";
 import { categoryRouter } from "./src/routes/categoriesRouter";
 const { PORT, connectToDb } = require("./db");
 
+import { authRouter } from "./src/routes/authRouter";
+
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 
+app.use("/auth", authRouter);
 app.use("/categories", categoryRouter);
 app.use("/businesses", businessRouter);
 app.use("/bookings", bookingRouter);

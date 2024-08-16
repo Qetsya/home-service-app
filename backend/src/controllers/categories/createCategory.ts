@@ -12,7 +12,7 @@ export const createCategory = async (req: Request, res: Response) => {
     } else {
       res.status(201).json(savedCategory);
     }
-  } catch (error){
-    res.status(400).json({error: error.message})
-}
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 };
