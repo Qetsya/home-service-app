@@ -1,10 +1,7 @@
-import { Request, Response } from "express";
-const Booking = require("../../schemas/Booking");
+import { Request, Response } from 'express';
+const Booking = require('../../schemas/Booking');
 
-export const getBusinessBookingsByDate = async (
-  req: Request,
-  res: Response
-) => {
+export const getBusinessBookingsByDate = async (req: Request, res: Response) => {
   try {
     const bookings = await Booking.find({
       businessId: req.params.id,

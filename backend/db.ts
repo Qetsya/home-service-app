@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -7,12 +7,12 @@ const PORT = process.env.PORT ?? 3001;
 
 const connectToDb = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI, { dbName: "home-service" });
-    console.log("Connected to MongoDB with Mongoose");
+    await mongoose.connect(process.env.MONGO_URI!, { dbName: 'home-service' });
+    console.log('Connected to MongoDB with Mongoose');
   } catch (err) {
-    console.error("Could not connect to the database", err);
+    console.error('Could not connect to the database', err);
     process.exit(1);
   }
 };
 
-module.exports = { connectToDb, PORT };
+export { connectToDb, PORT };

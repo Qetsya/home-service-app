@@ -4,5 +4,5 @@ export interface Booking {
   time: string;
   userEmail: string;
   userName: string;
-  status: "confirmed" | "pending" | "cancelled";
+  status: 'confirmed' | 'pending' | 'cancelled';
 }

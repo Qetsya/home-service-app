@@ -10,5 +10,5 @@ export interface BusinessModel {
 }
 
 interface ImageUrl {
-  url: string
+  url: string;
 }

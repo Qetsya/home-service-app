@@ -1,8 +1,8 @@
-import { Hero } from "./Hero";
-import { CategoryList } from "@/components/category/CategoryList";
-import { BusinessList } from "./Business/BusinessList";
+import { Hero } from './Hero';
+import { CategoryList } from '@/components/category/CategoryList';
+import { BusinessList } from './Business/BusinessList';
 
-import styles from "./HomePage.module.scss";
+import styles from './HomePage.module.scss';
 
 export const HomePage = () => {
   return (

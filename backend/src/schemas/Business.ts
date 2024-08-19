@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const businessSchema = new mongoose.Schema(
   {
@@ -11,10 +11,10 @@ const businessSchema = new mongoose.Schema(
       type: String,
       required: true,
       validate: {
-        validator: function(email: string) {
+        validator: function (email: string) {
           return /^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]+$/.test(email);
         },
-        message: "Invalid email format",
+        message: 'Invalid email format',
       },
     },
     images: [{ url: { type: [String], required: true } }],
@@ -22,9 +22,9 @@ const businessSchema = new mongoose.Schema(
   {
     versionKey: false,
     timestamps: true,
-  }
+  },
 );
 
-const Business = mongoose.model("Business", businessSchema);
+const Business = mongoose.model('Business', businessSchema);
 
 module.exports = Business;

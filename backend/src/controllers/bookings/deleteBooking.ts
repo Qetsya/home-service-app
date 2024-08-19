@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
-const Booking = require("../../schemas/Booking");
+import { Request, Response } from 'express';
+const Booking = require('../../schemas/Booking');
 
 export const deleteBooking = async (req: Request, res: Response) => {
   try {

@@ -1,6 +1,6 @@
-import BusinessCard from "./BusinessCard";
-import { businesses } from "@/consts/business";
-import styles from "./BusinessList.module.scss";
+import BusinessCard from './BusinessCard';
+import { businesses } from '@/consts/business';
+import styles from './BusinessList.module.scss';
 
 export const BusinessList = () => {
   return (

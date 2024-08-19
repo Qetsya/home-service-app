@@ -1,5 +1,5 @@
-import { createContext, PropsWithChildren } from "react";
-import { useLocalStorage } from "@uidotdev/usehooks";
+import { createContext, PropsWithChildren } from 'react';
+import { useLocalStorage } from '@uidotdev/usehooks';
 
 interface UserProps {
   email: string;
@@ -21,7 +21,7 @@ const UserContext = createContext<UserContextType | null>({
 });
 
 const UserProvider = ({ children }: PropsWithChildren) => {
-  const [user, setUser] = useLocalStorage<UserProps | null>("user", null);
+  const [user, setUser] = useLocalStorage<UserProps | null>('user', null);
 
   const isLoggedIn = !!user;
 
@@ -33,11 +33,7 @@ const UserProvider = ({ children }: PropsWithChildren) => {
     setUser(null);
   };
 
-  return (
-    <UserContext.Provider value={{ user, login, logout, isLoggedIn }}>
-      {children}
-    </UserContext.Provider>
-  );
+  return <UserContext.Provider value={{ user, login, logout, isLoggedIn }}>{children}</UserContext.Provider>;
 };
 
 export { UserContext, UserProvider };

@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
-const Category = require("../../schemas/Category");
+import { Request, Response } from 'express';
+const Category = require('../../schemas/Category');
 
 export const createCategory = async (req: Request, res: Response) => {
   const body = req.body;

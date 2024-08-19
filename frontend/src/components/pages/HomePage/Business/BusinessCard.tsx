@@ -1,6 +1,6 @@
-import { Button } from "@/components/common/Button";
-import { BusinessModel } from "@/types/BusinessModel";
-import styles from "./BusinessCard.module.scss";
+import { Button } from '@/components/common/Button';
+import { BusinessModel } from '@/types/BusinessModel';
+import styles from './BusinessCard.module.scss';
 
 interface BusinessCardProps {
   business: BusinessModel;

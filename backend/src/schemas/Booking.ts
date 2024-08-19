@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const bookingSchema = new mongoose.Schema(
   {
@@ -9,25 +9,25 @@ const bookingSchema = new mongoose.Schema(
       type: String,
       required: true,
       validate: {
-        validator: function(email: string) {
+        validator: function (email: string) {
           return /^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]+$/.test(email);
         },
-        message: "Invalid email format",
+        message: 'Invalid email format',
       },
     },
     userName: { type: String, minLength: 3, maxLength: 12, required: true },
     status: {
       type: String,
       required: true,
-      enum: { values: ["confirmed", "pending", "cancelled"] },
+      enum: { values: ['confirmed', 'pending', 'cancelled'] },
     },
   },
   {
     versionKey: false,
     timestamps: true,
-  }
+  },
 );
 
-const Booking = mongoose.model("Booking", bookingSchema);
+const Booking = mongoose.model('Booking', bookingSchema);
 
 module.exports = Booking;

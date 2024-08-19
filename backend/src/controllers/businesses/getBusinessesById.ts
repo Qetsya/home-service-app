@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
-const Business = require("../../schemas/Business");
+import { Request, Response } from 'express';
+const Business = require('../../schemas/Business');
 
 export const getBusinessesById = async (req: Request, res: Response) => {
   try {
