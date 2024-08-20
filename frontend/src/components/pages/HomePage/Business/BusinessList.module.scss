@@ -9,6 +9,10 @@
   gap: 1rem;
 }
 
+.loading {
+  justify-content: center;
+}
+
 @media (min-width: $layout-breakpoint-small) {
   .list {
     grid-template-columns: repeat(2, 1fr);

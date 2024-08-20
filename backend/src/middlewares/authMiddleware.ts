@@ -24,7 +24,7 @@ const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
 
   try {
     const token = authHeader.split(' ')[1];
-    const payload: UserPayload = jwt.verify(token, process.env.JWT_SECRET);
+    const payload = jwt.verify(token, process.env.JWT_SECRET!) as UserPayload;
     req.currentUser = payload;
     next();
   } catch (error) {
