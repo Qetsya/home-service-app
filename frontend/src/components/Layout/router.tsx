@@ -1,11 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { Layout } from '@/components/Layout/Layout';
-import AboutUsPage from '@/components/pages/AboutUsPage/AboutUsPage';
-import { HomePage } from '@/components/pages/HomePage/HomePage';
-import { LoginPage } from '@/components/pages/LoginPage/LoginPage';
-import ServicesPage from '@/components/pages/ServicesPage/ServicesPage';
-
 import routes from '../../consts/routes';
+
+import { Layout } from '@/components/Layout/Layout';
+import { HomePage } from '@/components/pages/HomePage/HomePage';
+import { ServicesPage } from '@/components/pages/ServicesPage/ServicesPage';
+import { AboutUsPage } from '@/components/pages/AboutUsPage/AboutUsPage';
+import { LoginPage } from '../pages/Login, RegisterPages/LoginPage';
+import { RegisterPage } from '../pages/Login, RegisterPages/RegisterPage';
 import { SearchCategoryPage } from '@/components/pages/SearchCategoryPage/SerachCategoryPage';
 
 const router = createBrowserRouter([
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: routes.LOGIN_PAGE,
         element: <LoginPage />,
+      },
+      {
+        path: routes.REGISTER_PAGE,
+        element: <RegisterPage />,
       },
       {
         path: routes.SEARCH_CATEGORY,

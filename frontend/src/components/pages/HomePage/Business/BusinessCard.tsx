@@ -1,4 +1,4 @@
-import { Button } from '@/components/common/Button';
+import { Button } from '@/components/common/buttons/Button';
 import { BusinessModel } from '@/types/BusinessModel';
 import styles from './BusinessCard.module.scss';
 

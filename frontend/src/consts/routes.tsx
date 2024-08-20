@@ -3,6 +3,7 @@ const routes = {
   SERVICES: '/services',
   ABOUT_US: '/aboutUs',
   LOGIN_PAGE: '/login',
+  REGISTER_PAGE: '/register',
   SEARCH_CATEGORY: '/search/:category',
 };
 

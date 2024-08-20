@@ -6,7 +6,7 @@ import routes from '@/consts/routes.js';
 import logo from '@/assets/logo/logo-Baau9ypC.webp';
 import styles from './Topbar.module.scss';
 
-import { Button } from '../../common/Button.js';
+import { Button } from '../../common/buttons/Button.js';
 import { Avatar } from '@/components/common/Avatar.js';
 
 const Topbar = () => {
