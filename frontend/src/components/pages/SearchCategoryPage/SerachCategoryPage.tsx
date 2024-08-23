@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
-import { CategoryList } from '@/components/category/CategoryList';
-import BusinessCard from '../HomePage/Business/BusinessCard';
+import { CategoryList } from '@/components/Category/CategoryList';
+import BusinessCard from '../../Business/BusinessCard';
 import classNames from 'classnames';
 import styles from './SearchCategoryPage.module.scss';
 import { businesses } from '@/consts/business';
@@ -21,7 +21,7 @@ export const SearchCategoryPage = () => {
         <div className={styles.grid}>
           {businesses.map((business) => {
             if (business.category === category) {
-              return <BusinessCard business={business} key={business.name} />;
+              return <BusinessCard business={business} key={business._id} />;
             }
           })}
         </div>

@@ -1,15 +1,11 @@
 import { createContext, PropsWithChildren } from 'react';
 import { useLocalStorage } from '@uidotdev/usehooks';
-
-interface UserProps {
-  email: string;
-  password: string;
-}
+import { User, UserResponse } from '@/types/User';
 
 interface UserContextType {
-  user: UserProps | null;
+  user: User | null;
   isLoggedIn: boolean;
-  login: (user: UserProps) => void;
+  login: (user: UserResponse) => void;
   logout: () => void;
 }
 
@@ -21,16 +17,19 @@ const UserContext = createContext<UserContextType | null>({
 });
 
 const UserProvider = ({ children }: PropsWithChildren) => {
-  const [user, setUser] = useLocalStorage<UserProps | null>('user', null);
+  const [user, setUser] = useLocalStorage<User | null>('user', null);
+  const [, setToken] = useLocalStorage<string | null>('token', null);
 
   const isLoggedIn = !!user;
 
-  const login = (user: UserProps) => {
-    setUser(user);
+  const login = (user: UserResponse) => {
+    setUser(user.user);
+    setToken(user.token);
   };
 
   const logout = () => {
     setUser(null);
+    setToken(null);
   };
 
   return <UserContext.Provider value={{ user, login, logout, isLoggedIn }}>{children}</UserContext.Provider>;
