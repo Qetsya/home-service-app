@@ -1,9 +1,10 @@
 import styles from './AnimatedButton.module.scss';
 import { ReactNode } from 'react';
+import { FormEvent } from 'react';
 
 interface ButtonProps {
   type?: 'button' | 'submit' | 'reset';
-  onClick?: () => void;
+  onClick?: (e: FormEvent) => Promise<void> | (() => void);
   children?: ReactNode | string;
 }
 

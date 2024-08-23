@@ -18,7 +18,6 @@ export const BusinessList = () => {
     } catch {
       setError('Something went wrong, please reload the page');
     }
-
     setLoading(false);
   };
 
@@ -26,7 +25,7 @@ export const BusinessList = () => {
     fetchData();
   }, []);
 
-  if (error) return <div>{error}</div>;
+  if (error) return <div className={styles.error}>{error}</div>;
 
   return (
     <>
@@ -44,7 +43,7 @@ export const BusinessList = () => {
       ) : (
         <div className={styles.list}>
           {businesses.map((business) => {
-            return <BusinessCard business={business} key={business.name} />;
+            return <BusinessCard business={business} key={business._id} />;
           })}
         </div>
       )}

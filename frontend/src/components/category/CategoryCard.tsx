@@ -1,11 +1,10 @@
+import styles from './CategoryCard.module.scss';
 import { generatePath, useNavigate } from 'react-router-dom';
-
 import { useParams } from 'react-router-dom';
 
 import { CategoryModel } from '@/types/CategoryModel';
 
 import classNames from 'classnames';
-import styles from './CategoryCard.module.scss';
 import routes from '@/consts/routes';
 
 interface CategoryProps {

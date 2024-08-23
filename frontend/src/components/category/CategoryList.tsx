@@ -1,3 +1,4 @@
+import styles from './CategoryList.module.scss';
 import { useState, useEffect } from 'react';
 import { CategoryCard } from './CategoryCard';
 import { CategoryModel } from '@/types/CategoryModel';
@@ -17,7 +18,6 @@ export const CategoryList = () => {
     } catch {
       setError('Something went wrong, please reload the page');
     }
-
     setLoading(false);
   };
 
@@ -25,17 +25,17 @@ export const CategoryList = () => {
     fetchData();
   }, []);
 
-  if (error) return <div>{error}</div>;
+  if (error) return <div className={styles.error}>{error}</div>;
 
   return (
-    <>
+    <div className={styles.categoryList}>
       {loading ? (
         <Triangle visible={true} height="80" width="80" color="#8056eb" ariaLabel="triangle-loading" />
       ) : (
         categories.map((category) => {
-          return <CategoryCard category={category} key={category.name} />;
+          return <CategoryCard category={category} key={category._id} />;
         })
       )}
-    </>
+    </div>
   );
 };

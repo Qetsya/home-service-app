@@ -50,7 +50,7 @@ const Topbar = () => {
       </div>
       {userContext?.user ? (
         <div className={styles.rightSide}>
-          <Avatar>{userContext?.user?.email[0]}</Avatar>
+          <Avatar>{userContext?.user.email[0]}</Avatar>
           <Button onClick={() => userContext?.logout()}>Log out</Button>
         </div>
       ) : (
