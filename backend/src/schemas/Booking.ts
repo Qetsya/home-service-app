@@ -1,9 +1,10 @@
 import mongoose from 'mongoose';
+import { Booking } from '../models/BookingModel';
 
-const bookingSchema = new mongoose.Schema(
+const bookingSchema = new mongoose.Schema<Booking>(
   {
-    businessId: { type: String, required: true },
-    date: { type: String, required: true },
+    businessId: { type: mongoose.Schema.Types.ObjectId, required: true },
+    date: { type: Date, required: true },
     time: { type: String, required: true },
     userEmail: {
       type: String,

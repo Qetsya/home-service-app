@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
+import { Business } from '../models/BusinessModel';
 
-const businessSchema = new mongoose.Schema(
+const businessSchema = new mongoose.Schema<Business>(
   {
     name: { type: String, minLength: 3, maxLength: 15, required: true },
     about: { type: String, required: true },
@@ -17,7 +18,12 @@ const businessSchema = new mongoose.Schema(
         message: 'Invalid email format',
       },
     },
-    images: [{ url: { type: [String], required: true } }],
+    imageUrls: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
   },
   {
     versionKey: false,

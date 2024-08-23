@@ -1,5 +1,6 @@
+import { Types } from 'mongoose';
 export interface Booking {
-  businessId: number;
+  businessId: Types.ObjectId;
   date: Date;
   time: string;
   userEmail: string;

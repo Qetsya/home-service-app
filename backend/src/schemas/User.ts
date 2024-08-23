@@ -1,7 +1,8 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
+import { User } from '../models/UserModel';
 
-const userSchema = new mongoose.Schema(
+const userSchema = new mongoose.Schema<User>(
   {
     name: { type: String, minLength: 3, maxLength: 12, required: true },
     age: { type: Number },

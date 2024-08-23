@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-const User = require('../../schemas/User');
 const { generateToken } = require('../../utils/password');
+const User = require('../../schemas/User');
 
 export const loginUser = async (req: Request, res: Response) => {
   try {
@@ -20,7 +20,7 @@ export const loginUser = async (req: Request, res: Response) => {
     const token = generateToken({ id: user._id });
 
     const userWithoutPassword = await User.findById(user._id).select('-password');
-    return res.status(200).json({ status: 'success', token, user: userWithoutPassword });
+    return res.status(200).json({ token, user: userWithoutPassword });
   } catch (error) {
     return res.status(500).json({ message: 'Error logging in.', error: error.message });
   }

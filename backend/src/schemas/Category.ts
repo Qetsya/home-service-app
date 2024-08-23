@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
+import { Category } from '../models/CategoryModel';
 
-const categorySchema = new mongoose.Schema(
+const categorySchema = new mongoose.Schema<Category>(
   {
     name: { type: String, minLength: 3, maxLength: 12, required: true },
     bgcolor: { hex: { type: String, required: true, default: '#8056eb' } },
