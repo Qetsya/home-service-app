@@ -8,16 +8,16 @@ interface InputProps {
   value: string | number;
   name?: string;
   placeholder: string;
-  error?: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   required?: boolean;
   onBlur?: () => void;
 }
 
-export const Input = ({ type, min, max, value, placeholder, error, onChange, onBlur }: InputProps) => {
+export const Input = ({ name, type, min, max, value, placeholder, onChange, onBlur }: InputProps) => {
   return (
     <div className={styles.inputBox}>
       <input
+        name={name}
         className={styles.input}
         type={type}
         min={min}
@@ -28,7 +28,6 @@ export const Input = ({ type, min, max, value, placeholder, error, onChange, onB
         required
         onBlur={onBlur}
       />
-      {error && <p className={styles.error}>{error}</p>}
     </div>
   );
 };

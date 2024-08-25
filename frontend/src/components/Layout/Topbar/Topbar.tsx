@@ -51,10 +51,14 @@ const Topbar = () => {
       {userContext?.user ? (
         <div className={styles.rightSide}>
           <Avatar>{userContext?.user.email[0]}</Avatar>
-          <Button onClick={() => userContext?.logout()}>Log out</Button>
+          <Button simple onClick={() => userContext?.logout()}>
+            Log out
+          </Button>
         </div>
       ) : (
-        <Button onClick={() => navigate(routes.LOGIN_PAGE)}>Login / Sign Up</Button>
+        <Button simple onClick={() => navigate(routes.LOGIN_PAGE)}>
+          Login / Sign Up
+        </Button>
       )}
     </div>
   );

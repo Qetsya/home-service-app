@@ -17,3 +17,6 @@ export interface UserResponse {
 }
 
 export type NewUser = Omit<User, '_id'>;
+export interface UserToValidate extends NewUser {
+  repeatPassword: string;
+}

@@ -20,7 +20,7 @@ const BusinessCard = ({ business }: BusinessCardProps) => {
         <p className={styles.contactPerson}>{contactPerson}</p>
         <p className={styles.address}>{address}</p>
         <div>
-          <Button>Book Now</Button>
+          <Button simple>Book Now</Button>
         </div>
       </div>
     </div>

@@ -1,17 +1,19 @@
 import styles from './Button.module.scss';
 import classNames from 'classnames';
-import { ReactNode } from 'react';
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  simple?: boolean;
   rounded?: boolean;
-  onClick?: () => void;
-  children?: ReactNode | string;
+  animated?: boolean;
 }
 
-export const Button = ({ rounded, onClick, children, ...props }: ButtonProps) => {
+export const Button = ({ simple, rounded, animated, ...props }: ButtonProps) => {
   return (
-    <button className={classNames(styles.button, rounded && styles.rounded)} onClick={onClick} {...props}>
-      {children}
+    <button
+      className={classNames(simple && styles.simple, rounded && styles.rounded, animated && styles.animated)}
+      {...props}
+    >
+      {props.children}
     </button>
   );
 };

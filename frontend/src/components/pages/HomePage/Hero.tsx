@@ -14,7 +14,7 @@ export const Hero = () => {
       <p className={styles.subtitle}>Explore Best Home Service & Repair near you</p>
       <div className={styles.searchContainer}>
         <SearchInput />
-        <Button rounded>
+        <Button simple rounded>
           <div>
             <CiSearch fontSize={24} />
           </div>

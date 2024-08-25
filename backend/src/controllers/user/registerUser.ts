@@ -10,7 +10,6 @@ export const registerUser = async (req: Request, res: Response) => {
     if (userExist) {
       return res.status(400).json({ message: 'User already exist' });
     }
-
     const newUser = new User(user);
     await newUser.save();
 
