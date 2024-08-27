@@ -1,33 +1,11 @@
 import styles from './Input.module.scss';
-import { ChangeEvent } from 'react';
 
-interface InputProps {
-  type: 'text' | 'number' | 'email' | 'password';
-  min?: string;
-  max?: string;
-  value: string | number;
-  name?: string;
-  placeholder: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  required?: boolean;
-  onBlur?: () => void;
-}
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 
-export const Input = ({ name, type, min, max, value, placeholder, onChange, onBlur }: InputProps) => {
+export const Input = ({ ...props }: InputProps) => {
   return (
     <div className={styles.inputBox}>
-      <input
-        name={name}
-        className={styles.input}
-        type={type}
-        min={min}
-        max={max}
-        value={value}
-        placeholder={placeholder}
-        onChange={onChange}
-        required
-        onBlur={onBlur}
-      />
+      <input {...props} className={styles.input} />
     </div>
   );
 };

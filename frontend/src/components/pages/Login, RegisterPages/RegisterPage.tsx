@@ -16,37 +16,26 @@ import { Triangle } from 'react-loader-spinner';
 
 export const RegisterPage = () => {
   const [submitError, setSubmitError] = useState('');
-  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const userContext = useContext(UserContext);
 
   const handleSubmit = async (newUser: UserToValidate) => {
-    setLoading(true);
-    if (newUser.password === newUser.repeatPassword) {
-      try {
-        const response = await registerUser(newUser);
-        userContext?.login(response);
-        enqueueSnackbar('Welcome!');
-        navigate(routes.HOME);
-      } catch (error) {
-        const errorMessage = error as AxiosBackendError;
-        setSubmitError(errorMessage.response.data.message ?? '');
-      }
-    } else {
-      setSubmitError('Passwords must match');
-      setTimeout(() => {
-        setSubmitError('');
-      }, 4000);
+    try {
+      const response = await registerUser(newUser);
+      userContext?.login(response);
+      enqueueSnackbar('Welcome!');
+      navigate(routes.HOME);
+    } catch (error) {
+      const errorMessage = error as AxiosBackendError;
+      setSubmitError(errorMessage.response.data.message ?? '');
     }
-
-    setLoading(false);
   };
 
   useEffect(() => {
     if (userContext?.isLoggedIn) {
       navigate(routes.HOME);
     }
-  });
+  }, [userContext?.isLoggedIn, navigate]);
 
   return (
     <div className={styles.background}>
@@ -55,30 +44,32 @@ export const RegisterPage = () => {
         validationSchema={registerValidationSchema}
         onSubmit={handleSubmit}
       >
-        <Form className={styles.container}>
-          <h2>Register</h2>
-          <FormikInput name="name" type="text" placeholder="Name" />
-          <FormikInput name="age" type="number" placeholder="Age" />
-          <FormikInput name="email" type="email" placeholder="Email" />
-          <FormikInput name="password" type="password" placeholder="Password" />
-          <FormikInput name="repeatPassword" type="password" placeholder="Repeat password" />
+        {({ isSubmitting }) => (
+          <Form className={styles.container}>
+            <h2>Register</h2>
+            <FormikInput name="name" type="text" placeholder="Name" />
+            <FormikInput name="age" type="number" placeholder="Age" />
+            <FormikInput name="email" type="email" placeholder="Email" />
+            <FormikInput name="password" type="password" placeholder="Password" />
+            <FormikInput name="repeatPassword" type="password" placeholder="Repeat password" />
 
-          {submitError && <span className={styles.error}>{submitError}</span>}
-          {loading ? (
-            <Triangle visible={true} height="40" width="40" color="#8056eb" ariaLabel="triangle-loading" />
-          ) : (
-            <Button animated type="submit">
-              Submit
-            </Button>
-          )}
+            {submitError && <span className={styles.error}>{submitError}</span>}
+            {isSubmitting ? (
+              <Triangle visible={true} height="40" width="40" color="#8056eb" ariaLabel="triangle-loading" />
+            ) : (
+              <Button animated type="submit">
+                Submit
+              </Button>
+            )}
 
-          <span className={styles.text}>
-            Already have and account?{' '}
-            <span onClick={() => navigate(routes.LOGIN_PAGE)} className={styles.signUpLink}>
-              Log In here!
+            <span className={styles.text}>
+              Already have and account?{' '}
+              <span onClick={() => navigate(routes.LOGIN_PAGE)} className={styles.signUpLink}>
+                Log In here!
+              </span>
             </span>
-          </span>
-        </Form>
+          </Form>
+        )}
       </Formik>
     </div>
   );
