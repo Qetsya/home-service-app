@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
-const Booking = require("../../schemas/Booking");
+import { Request, Response } from 'express';
+const Booking = require('../../schemas/Booking');
 
 export const createBooking = async (req: Request, res: Response) => {
   const newBooking = new Booking(req.body);

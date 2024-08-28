@@ -1,12 +1,14 @@
-import { createBrowserRouter } from "react-router-dom";
-import { Layout } from "@/components/Layout/Layout";
-import AboutUsPage from "@/components/pages/AboutUsPage/AboutUsPage";
-import { HomePage } from "@/components/pages/HomePage/HomePage";
-import { LoginPage } from "@/components/pages/LoginPage/LoginPage";
-import ServicesPage from "@/components/pages/ServicesPage/ServicesPage";
+import { createBrowserRouter } from 'react-router-dom';
+import routes from '../../consts/routes';
 
-import routes from "../../consts/routes";
-import { SearchCategoryPage } from "@/components/pages/SearchCategoryPage/SerachCategoryPage";
+import { Layout } from '@/components/Layout/Layout';
+import { HomePage } from '@/components/pages/HomePage/HomePage';
+import { ServicesPage } from '@/components/pages/ServicesPage/ServicesPage';
+import { AboutUsPage } from '@/components/pages/AboutUsPage/AboutUsPage';
+import { LoginPage } from '../pages/Login, RegisterPages/LoginPage';
+import { RegisterPage } from '../pages/Login, RegisterPages/RegisterPage';
+import { SearchCategoryPage } from '@/components/pages/SearchCategoryPage/SerachCategoryPage';
+import { NotFoundPage } from '../pages/NotFoundPage/NotFoundPage';
 
 const router = createBrowserRouter([
   {
@@ -30,8 +32,16 @@ const router = createBrowserRouter([
         element: <LoginPage />,
       },
       {
+        path: routes.REGISTER_PAGE,
+        element: <RegisterPage />,
+      },
+      {
         path: routes.SEARCH_CATEGORY,
         element: <SearchCategoryPage />,
+      },
+      {
+        path: routes.NOT_FOUND,
+        element: <NotFoundPage />,
       },
     ],
   },

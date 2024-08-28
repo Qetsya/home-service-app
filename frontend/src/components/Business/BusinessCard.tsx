@@ -1,6 +1,6 @@
-import { Button } from "@/components/common/Button";
-import { BusinessModel } from "@/types/BusinessModel";
-import styles from "./BusinessCard.module.scss";
+import { Button } from '@/components/common/buttons/Button';
+import { BusinessModel } from '@/types/BusinessModel';
+import styles from './BusinessCard.module.scss';
 
 interface BusinessCardProps {
   business: BusinessModel;
@@ -20,7 +20,7 @@ const BusinessCard = ({ business }: BusinessCardProps) => {
         <p className={styles.contactPerson}>{contactPerson}</p>
         <p className={styles.address}>{address}</p>
         <div>
-          <Button>Book Now</Button>
+          <Button simple>Book Now</Button>
         </div>
       </div>
     </div>

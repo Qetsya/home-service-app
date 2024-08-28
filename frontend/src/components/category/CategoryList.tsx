@@ -1,12 +1,23 @@
-import { categories } from "@/consts/category";
-import { CategoryCard } from "./CategoryCard";
+import styles from './CategoryList.module.scss';
+import { CategoryCard } from './CategoryCard';
+import { useCategories } from '@/hooks/categories';
+import { Loader } from '../common/Loader';
 
 export const CategoryList = () => {
+  const { data, isLoading, isError } = useCategories();
+  const categories = data ?? [];
+
+  if (isError) return <div className={styles.error}>Something went wrong, please reload the page</div>;
+
   return (
-    <>
-      {categories.map((category) => {
-        return <CategoryCard category={category} key={category.name} />;
-      })}
-    </>
+    <div className={styles.categoryList}>
+      {isLoading ? (
+        <Loader size="80" />
+      ) : (
+        categories.map((category) => {
+          return <CategoryCard category={category} key={category._id} />;
+        })
+      )}
+    </div>
   );
 };

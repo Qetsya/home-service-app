@@ -1,6 +1,7 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
+import { Business } from '../models/BusinessModel';
 
-const businessSchema = new mongoose.Schema(
+const businessSchema = new mongoose.Schema<Business>(
   {
     name: { type: String, minLength: 3, maxLength: 15, required: true },
     about: { type: String, required: true },
@@ -11,20 +12,25 @@ const businessSchema = new mongoose.Schema(
       type: String,
       required: true,
       validate: {
-        validator: function(email: string) {
+        validator: function (email: string) {
           return /^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]+$/.test(email);
         },
-        message: "Invalid email format",
+        message: 'Invalid email format',
       },
     },
-    images: [{ url: { type: [String], required: true } }],
+    imageUrls: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
   },
   {
     versionKey: false,
     timestamps: true,
-  }
+  },
 );
 
-const Business = mongoose.model("Business", businessSchema);
+const Business = mongoose.model('Business', businessSchema);
 
 module.exports = Business;

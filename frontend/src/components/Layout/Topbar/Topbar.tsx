@@ -1,13 +1,13 @@
-import { useContext } from "react";
-import { UserContext } from "@/contexts/UserContext.js";
-import { useNavigate, Link } from "react-router-dom";
-import routes from "@/consts/routes.js";
+import { useContext } from 'react';
+import { UserContext } from '@/contexts/UserContext.js';
+import { useNavigate, Link } from 'react-router-dom';
+import routes from '@/consts/routes.js';
 
-import logo from "@/assets/logo/logo-Baau9ypC.webp";
-import styles from "./Topbar.module.scss";
+import logo from '@/assets/logo/logo-Baau9ypC.webp';
+import styles from './Topbar.module.scss';
 
-import { Button } from "../../common/Button.js";
-import { Avatar } from "@/components/common/Avatar.js";
+import { Button } from '../../common/buttons/Button.js';
+import { Avatar } from '@/components/common/Avatar.js';
 
 const Topbar = () => {
   const navigate = useNavigate();
@@ -16,15 +16,15 @@ const Topbar = () => {
   const links = [
     {
       href: routes.HOME,
-      label: "Home",
+      label: 'Home',
     },
     {
       href: routes.SERVICES,
-      label: "Services",
+      label: 'Services',
     },
     {
       href: routes.ABOUT_US,
-      label: "About Us",
+      label: 'About Us',
     },
   ];
 
@@ -50,11 +50,13 @@ const Topbar = () => {
       </div>
       {userContext?.user ? (
         <div className={styles.rightSide}>
-          <Avatar>{userContext?.user?.email[0]}</Avatar>
-          <Button onClick={() => userContext?.logout()}>Log out</Button>
+          <Avatar>{userContext?.user.email[0]}</Avatar>
+          <Button simple onClick={() => userContext?.logout()}>
+            Log out
+          </Button>
         </div>
       ) : (
-        <Button onClick={() => navigate(routes.LOGIN_PAGE)}>
+        <Button simple onClick={() => navigate(routes.LOGIN_PAGE)}>
           Login / Sign Up
         </Button>
       )}

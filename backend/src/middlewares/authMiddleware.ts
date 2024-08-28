@@ -1,5 +1,5 @@
-import { Request, Response, NextFunction } from "express";
-const jwt = require("jsonwebtoken");
+import { Request, Response, NextFunction } from 'express';
+import jwt from 'jsonwebtoken';
 
 export interface UserPayload {
   id: string;
@@ -18,18 +18,18 @@ declare global {
 const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
   const authHeader = req.headers.authorization;
   console.log(req.currentUser);
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return res.status(401).send({ error: "Not authenticated" });
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return res.status(401).send({ error: 'Not authenticated' });
   }
 
   try {
-    const token = authHeader.split(" ")[1];
-    const payload: UserPayload = jwt.verify(token, process.env.JWT_SECRET);
+    const token = authHeader.split(' ')[1];
+    const payload = jwt.verify(token, process.env.JWT_SECRET!) as UserPayload;
     req.currentUser = payload;
     next();
   } catch (error) {
-    res.status(401).send({ error: "Not authenticated" });
+    res.status(401).send({ error: 'Not authenticated' });
   }
 };
 
-module.exports = authMiddleware;
+export default authMiddleware;
