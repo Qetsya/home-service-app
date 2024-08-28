@@ -1,45 +1,20 @@
 import styles from './BusinessList.module.scss';
-import { useState, useEffect } from 'react';
-import { getBusinesses } from '@/services/getBusinesses';
 import BusinessCard from './BusinessCard';
-import { BusinessModel } from '@/types/BusinessModel';
-import { Triangle } from 'react-loader-spinner';
+import { Loader } from '../common/Loader';
+import { useBusinesses } from '@/hooks/businesses';
 
 export const BusinessList = () => {
-  const [businesses, setBusinesses] = useState<BusinessModel[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const { data, isLoading, isError } = useBusinesses();
+  const businesses = data ?? [];
 
-  const fetchData = async () => {
-    setLoading(true);
-    try {
-      const data = await getBusinesses();
-      setBusinesses(data);
-    } catch {
-      setError('Something went wrong, please reload the page');
-    }
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  if (error) return <div className={styles.error}>{error}</div>;
+  if (isError) return <div className={styles.error}>Something went wrong, please reload the page</div>;
 
   return (
     <>
       <h2 className={styles.title}>Popular businesses</h2>
 
-      {loading ? (
-        <Triangle
-          visible={true}
-          height="80"
-          width="80"
-          color="#8056eb"
-          ariaLabel="triangle-loading"
-          wrapperClass={styles.loading}
-        />
+      {isLoading ? (
+        <Loader size="80" wrapperClass={styles.loading} />
       ) : (
         <div className={styles.list}>
           {businesses.map((business) => {

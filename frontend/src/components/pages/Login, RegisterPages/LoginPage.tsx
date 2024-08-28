@@ -7,15 +7,17 @@ import { UserContext } from '@/contexts/UserContext';
 import { Form, Formik } from 'formik';
 import { FormikInput } from '@/components/common/inputs/FormikInput';
 import { AxiosBackendError } from '@/types/axiosBackendError';
-import { loginUser } from '@/services/loginUser';
 import { loginValidationSchema } from '@/consts/loginValidationSchema';
-import { loginFormInitialValues } from '@/consts/FormInitialValues';
+import { loginFormInitialValues } from '@/consts/formInitialValues';
 import { UserRequest } from '@/types/User';
 import { Button } from '@/components/common/buttons/Button';
 import { enqueueSnackbar } from 'notistack';
-import { Triangle } from 'react-loader-spinner';
+import { Loader } from '@/components/common/Loader';
+import { useLoginUser } from '@/hooks/user';
 
 export const LoginPage = () => {
+  const { mutateAsync: loginUser } = useLoginUser();
+
   const userContext = useContext(UserContext);
   const navigate = useNavigate();
   const [submitError, setSubmitError] = useState('');
@@ -49,7 +51,7 @@ export const LoginPage = () => {
 
             {submitError && <span className={styles.error}>{submitError}</span>}
             {isSubmitting ? (
-              <Triangle visible={true} height="40" width="40" color="#8056eb" ariaLabel="triangle-loading" />
+              <Loader size="40" />
             ) : (
               <Button animated type="submit">
                 Submit

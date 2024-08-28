@@ -5,19 +5,20 @@ import routes from '@/consts/routes';
 import { Formik, Form } from 'formik';
 import { FormikInput } from '@/components/common/inputs/FormikInput';
 import { UserContext } from '@/contexts/UserContext';
-import { registerFormInitialValues } from '@/consts/FormInitialValues';
+import { registerFormInitialValues } from '@/consts/formInitialValues';
 import { registerValidationSchema } from '@/consts/registerValidationSchema';
 import { UserToValidate } from '@/types/User';
-import { registerUser } from '@/services/registerUser';
 import { AxiosBackendError } from '@/types/axiosBackendError';
 import { enqueueSnackbar } from 'notistack';
 import { Button } from '@/components/common/buttons/Button';
-import { Triangle } from 'react-loader-spinner';
+import { Loader } from '@/components/common/Loader';
+import { useRegisterUser } from '@/hooks/user';
 
 export const RegisterPage = () => {
-  const [submitError, setSubmitError] = useState('');
-  const navigate = useNavigate();
   const userContext = useContext(UserContext);
+  const navigate = useNavigate();
+  const { mutateAsync: registerUser } = useRegisterUser();
+  const [submitError, setSubmitError] = useState('');
 
   const handleSubmit = async (newUser: UserToValidate) => {
     try {
@@ -55,7 +56,7 @@ export const RegisterPage = () => {
 
             {submitError && <span className={styles.error}>{submitError}</span>}
             {isSubmitting ? (
-              <Triangle visible={true} height="40" width="40" color="#8056eb" ariaLabel="triangle-loading" />
+              <Loader size="40" />
             ) : (
               <Button animated type="submit">
                 Submit

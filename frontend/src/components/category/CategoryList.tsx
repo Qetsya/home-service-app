@@ -1,36 +1,18 @@
 import styles from './CategoryList.module.scss';
-import { useState, useEffect } from 'react';
 import { CategoryCard } from './CategoryCard';
-import { CategoryModel } from '@/types/CategoryModel';
-import { getCategories } from '@/services/getCategories';
-import { Triangle } from 'react-loader-spinner';
+import { useCategories } from '@/hooks/categories';
+import { Loader } from '../common/Loader';
 
 export const CategoryList = () => {
-  const [categories, setCategories] = useState<CategoryModel[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const { data, isLoading, isError } = useCategories();
+  const categories = data ?? [];
 
-  const fetchData = async () => {
-    setLoading(true);
-    try {
-      const data = await getCategories();
-      setCategories(data);
-    } catch {
-      setError('Something went wrong, please reload the page');
-    }
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  if (error) return <div className={styles.error}>{error}</div>;
+  if (isError) return <div className={styles.error}>Something went wrong, please reload the page</div>;
 
   return (
     <div className={styles.categoryList}>
-      {loading ? (
-        <Triangle visible={true} height="80" width="80" color="#8056eb" ariaLabel="triangle-loading" />
+      {isLoading ? (
+        <Loader size="80" />
       ) : (
         categories.map((category) => {
           return <CategoryCard category={category} key={category._id} />;
