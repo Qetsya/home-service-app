@@ -1,0 +1,18 @@
+.title {
+  margin: 3rem 5rem;
+}
+.gridContainer {
+  display: grid;
+  grid-template-columns: 60% auto;
+  grid-template-rows: 80px 80px;
+  gap: 10px;
+  background-color: #2196f3;
+  padding: 10px;
+  margin: 5rem 5rem;
+}
+.gridContainer > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
