@@ -6,7 +6,7 @@ const routes = {
   REGISTER_PAGE: '/register',
   SEARCH_CATEGORY: '/search/:category',
   NOT_FOUND: '/*',
-  SINGLE_BUSINESS_PAGE: '/businesspage',
+  BUSINESS_PAGE: '/businesspage',
 };
 
 export default routes;
