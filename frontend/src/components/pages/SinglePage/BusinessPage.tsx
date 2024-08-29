@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 
-export const BusinessPage = () => {
+export const BusinessPage: React.FC = () => {
   const { business } = useParams<{ business: string }>();
   return (
     <div>
