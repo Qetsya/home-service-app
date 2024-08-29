@@ -41,12 +41,12 @@ const router = createBrowserRouter([
         element: <SearchCategoryPage />,
       },
       {
-        path: routes.NOT_FOUND,
-        element: <NotFoundPage />,
-      },
-      {
         path: routes.BUSINESS_PAGE,
         element: <BusinessPage />,
+      },
+      {
+        path: routes.NOT_FOUND,
+        element: <NotFoundPage />,
       },
     ],
   },
