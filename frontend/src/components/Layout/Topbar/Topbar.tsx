@@ -7,7 +7,7 @@ import logo from '@/assets/logo/logo-Baau9ypC.webp';
 import styles from './Topbar.module.scss';
 
 import { Button } from '../../common/buttons/Button.js';
-import { Avatar } from '@/components/common/Avatar.js';
+import { Avatar } from '@/components/common/Avatar/Avatar.js';
 
 const Topbar = () => {
   const navigate = useNavigate();
@@ -50,10 +50,7 @@ const Topbar = () => {
       </div>
       {userContext?.user ? (
         <div className={styles.rightSide}>
-          <Avatar>{userContext?.user.email[0]}</Avatar>
-          <Button simple onClick={() => userContext?.logout()}>
-            Log out
-          </Button>
+          <Avatar>{userContext?.user?.email[0]}</Avatar>
         </div>
       ) : (
         <Button simple onClick={() => navigate(routes.LOGIN_PAGE)}>

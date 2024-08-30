@@ -1,3 +1,7 @@
+// @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 $layout-breakpoint-small: 600px;
 $layout-breakpoint-medium: 768px;
 $layout-breakpoint-large: 992px;
