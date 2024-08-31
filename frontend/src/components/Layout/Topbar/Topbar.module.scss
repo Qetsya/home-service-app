@@ -39,20 +39,3 @@
   gap: 1rem;
   align-items: center;
 }
-
-@media (min-width: $layout-breakpoint-medium) {
-  .topbar {
-    flex-direction: row;
-  }
-
-  .navigation {
-    flex-direction: row;
-    gap: 1.5rem;
-  }
-
-  .leftSide,
-  .rightSide {
-    flex-direction: row;
-    gap: 2rem;
-  }
-}

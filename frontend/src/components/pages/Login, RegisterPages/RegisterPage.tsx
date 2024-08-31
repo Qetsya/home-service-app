@@ -5,7 +5,7 @@ import routes from '@/consts/routes';
 import { Formik, Form } from 'formik';
 import { FormikInput } from '@/components/common/inputs/FormikInput';
 import { UserContext } from '@/contexts/UserContext';
-import { registerFormInitialValues } from '@/consts/formInitialValues';
+import { registerFormInitialValues } from '@/consts/FormInitialValues';
 import { registerValidationSchema } from '@/consts/registerValidationSchema';
 import { UserToValidate } from '@/types/User';
 import { AxiosBackendError } from '@/types/axiosBackendError';
@@ -46,7 +46,7 @@ export const RegisterPage = () => {
         onSubmit={handleSubmit}
       >
         {({ isSubmitting }) => (
-          <Form className={styles.container}>
+          <Form className={`${styles.container} sm:min-w-96`}>
             <h2>Register</h2>
             <FormikInput name="name" type="text" placeholder="Name" />
             <FormikInput name="age" type="number" placeholder="Age" />

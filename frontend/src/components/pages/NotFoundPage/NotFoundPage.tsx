@@ -1,5 +1,5 @@
-import Image from '@/assets/page-not-found.webp';
 import styles from './NotFoundPage.module.scss';
+import Image from '@/assets/page-not-found.webp';
 
 export const NotFoundPage = () => {
   return (

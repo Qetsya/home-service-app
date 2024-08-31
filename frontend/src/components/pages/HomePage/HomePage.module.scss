@@ -1,9 +1,3 @@
 .rootContainer {
-  padding: $main-container-padding-mobile;
-}
-
-@media (min-width: $layout-breakpoint-small) {
-  .rootContainer {
-    padding: $main-container-padding;
-  }
+  padding: var(--main-container-padding-mobile);
 }

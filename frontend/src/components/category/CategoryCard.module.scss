@@ -17,22 +17,22 @@
   font-size: 1.1rem;
   cursor: pointer;
 
-  .title {
-    text-transform: capitalize;
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: #9977ef;
-  }
-
   &:hover,
   &.activeCard {
     background-color: #f7f4fd;
     border-color: #beaaf5;
 
     .title {
-      color: $main-color;
+      color: var(--main-color);
     }
   }
+}
+
+.title {
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #9977ef;
 }
 
 .icon {

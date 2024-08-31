@@ -12,14 +12,14 @@ export const SearchCategoryPage = () => {
   const businesses = data ?? [];
 
   return (
-    <div className={styles.container}>
-      <div className={styles.leftSide}>
+    <div className={`${styles.container} p-8 sm:flex-row sm:p-16`}>
+      <div className={`${styles.leftSide} sm:flex-1`}>
         <h2 className={classNames(styles.title, styles.categoryTitle)}>Categories</h2>
         <CategoryList />
       </div>
-      <div className={styles.rightSide}>
+      <div className={`${styles.rightSide} sm:flex-2`}>
         <h2 className={styles.title}>Cleaning</h2>
-        <div className={styles.grid}>
+        <div className={`${styles.grid} lg:grid-cols-3`}>
           {isError && 'Something went wrong'}
           {isLoading ? (
             <Loader size="60" />

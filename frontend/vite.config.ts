@@ -7,11 +7,5 @@ export default defineConfig({
   resolve: {
     alias: [{ find: '@', replacement: '/src' }],
   },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@import "./src/styles/_variables";`,
-      },
-    },
-  },
+  css: {},
 });

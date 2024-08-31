@@ -3,7 +3,7 @@
   overflow-y: hidden;
   padding-top: 6rem;
 
-  background: radial-gradient(circle at 10% 20%, $main-color 0%, rgb(240, 131, 252) 79.4%);
+  background: radial-gradient(circle at 10% 20%, var(--main-color) 0%, rgb(240, 131, 252) 79.4%);
 }
 
 .container {
@@ -34,17 +34,10 @@
 }
 
 .signUpLink {
-  color: $main-color;
+  color: var(--main-color);
   cursor: pointer;
 }
 
 .error {
   color: rgb(207, 1, 1);
-}
-
-@media (min-width: $layout-breakpoint-small) {
-  .container {
-    min-height: 400px;
-    min-width: 430px;
-  }
 }

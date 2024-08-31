@@ -13,19 +13,17 @@ export const Avatar = ({ children }: Props) => {
   return (
     <div className={styles.container}>
       <Dropdown
-        className="w-36 shadow-md shadow-slate-500/50 "
+        className="w-36 "
         label=""
         dismissOnClick={false}
         renderTrigger={() => <div className={styles.avatar}>{children}</div>}
       >
-        <Dropdown.Item className="bg-white border-none">
+        <Dropdown.Item>
           <strong>My account</strong>
         </Dropdown.Item>
         <Dropdown.Divider />
-        <Dropdown.Item className="bg-white border-none">My Bookings</Dropdown.Item>
-        <Dropdown.Item onClick={() => userContext?.logout()} className="bg-white border-none">
-          Logout
-        </Dropdown.Item>
+        <Dropdown.Item>My Bookings</Dropdown.Item>
+        <Dropdown.Item onClick={() => userContext?.logout()}>Logout</Dropdown.Item>
       </Dropdown>
     </div>
   );

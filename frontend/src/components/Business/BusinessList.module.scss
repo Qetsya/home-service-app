@@ -16,21 +16,3 @@
 .error {
   text-align: center;
 }
-
-@media (min-width: $layout-breakpoint-small) {
-  .list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: $layout-breakpoint-medium) {
-  .list {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: $layout-breakpoint-large) {
-  .list {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
