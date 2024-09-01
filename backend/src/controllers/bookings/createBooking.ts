@@ -2,8 +2,8 @@ import { Request, Response } from 'express';
 const Booking = require('../../schemas/Booking');
 
 export const createBooking = async (req: Request, res: Response) => {
-  const newBooking = new Booking(req.body);
   try {
+    const newBooking = new Booking(req.body);
     const savedBooking = await newBooking.save();
     res.json(savedBooking);
   } catch (error) {

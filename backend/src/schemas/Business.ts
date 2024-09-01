@@ -13,7 +13,7 @@ const businessSchema = new mongoose.Schema<Business>(
       required: true,
       validate: {
         validator: function (email: string) {
-          return /^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]+$/.test(email);
+          return /^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$/.test(email);
         },
         message: 'Invalid email format',
       },
