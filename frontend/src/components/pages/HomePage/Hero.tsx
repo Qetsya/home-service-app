@@ -12,7 +12,7 @@ export const Hero = () => {
         Near You
       </h1>
       <p className={styles.subtitle}>Explore Best Home Service & Repair near you</p>
-      <div className={styles.searchContainer}>
+      <div className={`${styles.searchContainer} md:flex-row md:w-1/3`}>
         <SearchInput />
         <Button simple rounded>
           <div>

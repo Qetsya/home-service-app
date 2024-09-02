@@ -11,7 +11,7 @@ const bookingSchema = new mongoose.Schema<Booking>(
       required: true,
       validate: {
         validator: function (email: string) {
-          return /^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]+$/.test(email);
+          return /^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$/.test(email);
         },
         message: 'Invalid email format',
       },
@@ -19,7 +19,7 @@ const bookingSchema = new mongoose.Schema<Booking>(
     userName: { type: String, minLength: 3, maxLength: 12, required: true },
     status: {
       type: String,
-      required: true,
+      required: false,
       enum: { values: ['confirmed', 'pending', 'cancelled'] },
     },
   },

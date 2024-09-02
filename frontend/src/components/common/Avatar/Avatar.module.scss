@@ -1,5 +1,10 @@
+.container {
+  position: relative;
+}
+
 .avatar {
-  background-color: $main-color;
+  background-color: #024d3e;
+  color: white;
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
@@ -8,4 +13,5 @@
   justify-content: center;
   text-transform: capitalize;
   font-size: 1.5rem;
+  cursor: pointer;
 }

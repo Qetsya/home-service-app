@@ -7,7 +7,7 @@ import { ServicesPage } from '@/components/pages/ServicesPage/ServicesPage';
 import { AboutUsPage } from '@/components/pages/AboutUsPage/AboutUsPage';
 import { LoginPage } from '../pages/Login, RegisterPages/LoginPage';
 import { RegisterPage } from '../pages/Login, RegisterPages/RegisterPage';
-import { SearchCategoryPage } from '@/components/pages/SearchCategoryPage/SerachCategoryPage';
+import { SearchCategoryPage } from '../pages/SearchCategoryPage/SearchCategoryPage';
 import { NotFoundPage } from '../pages/NotFoundPage/NotFoundPage';
 import { BusinessPage } from '../pages/SinglePage/BusinessPage';
 

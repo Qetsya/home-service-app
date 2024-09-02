@@ -8,7 +8,7 @@ import { Form, Formik } from 'formik';
 import { FormikInput } from '@/components/common/inputs/FormikInput';
 import { AxiosBackendError } from '@/types/axiosBackendError';
 import { loginValidationSchema } from '@/consts/loginValidationSchema';
-import { loginFormInitialValues } from '@/consts/formInitialValues';
+import { loginFormInitialValues } from '@/consts/FormInitialValues';
 import { UserRequest } from '@/types/User';
 import { Button } from '@/components/common/buttons/Button';
 import { enqueueSnackbar } from 'notistack';
@@ -44,7 +44,7 @@ export const LoginPage = () => {
     <div className={styles.background}>
       <Formik initialValues={loginFormInitialValues} validationSchema={loginValidationSchema} onSubmit={handleSubmit}>
         {({ isSubmitting }) => (
-          <Form className={styles.container}>
+          <Form className={`${styles.container} sm:min-w-96`}>
             <h2>Login</h2>
             <FormikInput type="email" placeholder="Email" name="email" />
             <FormikInput type="password" placeholder="Password" name="password" />

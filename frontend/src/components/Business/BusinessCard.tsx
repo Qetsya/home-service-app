@@ -1,6 +1,6 @@
+import styles from './BusinessCard.module.scss';
 import { Button } from '@/components/common/buttons/Button';
 import { BusinessModel } from '@/types/BusinessModel';
-import styles from './BusinessCard.module.scss';
 import { generatePath, useNavigate } from 'react-router-dom';
 import routes from '@/consts/routes';
 

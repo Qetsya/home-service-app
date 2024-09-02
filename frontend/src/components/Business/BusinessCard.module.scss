@@ -6,9 +6,7 @@
   border-radius: 1rem;
   height: 480px;
 
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     transform: translateY(-10px);
@@ -35,7 +33,7 @@
 
 .category,
 .contactPerson {
-  color: $main-color;
+  color: var(--main-color);
 }
 
 .category {

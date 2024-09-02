@@ -5,7 +5,7 @@ import { BusinessList } from '../../Business/BusinessList';
 
 export const HomePage = () => {
   return (
-    <div className={styles.rootContainer}>
+    <div className={`${styles.rootContainer} sm:p-16`}>
       <Hero />
       <CategoryList />
       <BusinessList />
