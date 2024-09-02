@@ -10,6 +10,7 @@
   padding: 10px;
   margin: 5rem 5rem;
   grid-template-rows: fit-content(200px);
+  width: 80%;
 }
 .gridContainer > div {
   background-color: rgba(255, 255, 255, 0.8);
@@ -29,14 +30,15 @@
   justify-content: space-evenly;
 }
 .button {
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 30px;
   border-style: none;
   cursor: pointer;
   color: #8056eb;
   background-color: #e5ddfb;
   font-size: 0.9rem;
-  width: 130px;
+  width: 80px;
+  text-align: center;
 }
 .address,
 .email {
@@ -63,6 +65,13 @@
   flex-direction: column;
   align-items: start;
 }
+.availableTab {
+  display: flex;
+  justify-content: right;
+  align-items: end;
+  flex-direction: column;
+  gap: 15px;
+}
 .bookingBox {
   width: 55px;
   height: 44px;
@@ -74,4 +83,16 @@
 .bookingBox:hover {
   background-color: #9270e7;
   cursor: pointer;
+}
+.avaiName {
+  color: #8056eb;
+  font-family: Roboto, sans-serif;
+  font-size: 1.2rem;
+}
+.bookings {
+  color: #a8a8a8;
+  font-family: Roboto, sans-serif;
+  box-sizing: border-box;
+  font-size: 20px;
+  margin: 5px 0;
 }
