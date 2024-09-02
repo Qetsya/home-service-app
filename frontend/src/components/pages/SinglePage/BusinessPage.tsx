@@ -24,8 +24,8 @@ export const BusinessPage: React.FC = () => {
           <p className={styles.avaiName}>Jenny Wilson</p>
           <p className={styles.bookings}>Available 8:00 AM to 10PM</p>
         </div>
-        <div className="descriptionCard">
-          <h3 className={styles.descriptionName}>Description</h3>
+        <div className={styles.descriptionCard}>
+          <h4 className={styles.descriptionName}>Description</h4>
           <div className={styles.descriptionText}>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla provident ipsum placeat aspernatur est
             accusamus architecto modi deleniti, ipsa vero voluptatem assumenda beatae vel illo quibusdam facere tenetur
