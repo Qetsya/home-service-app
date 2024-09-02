@@ -24,7 +24,7 @@
   border-radius: 50%;
   //   object-fit: contain;
 }
-.wrapper {
+.infoCard {
   display: flex;
   justify-content: space-evenly;
 }
@@ -36,4 +36,30 @@
   color: #8056eb;
   background-color: #e5ddfb;
   font-size: 0.9rem;
+  width: 130px;
+}
+.address,
+.email {
+  color: #a8a8a8;
+  font-family: Roboto, sans-serif;
+  box-sizing: border-box;
+  font-size: 20px;
+  margin: 5px 0;
+}
+.pageTitle {
+  //   margin-top: 1rem;
+  font-size: 2.2rem;
+  font-family: Roboto, sans-serif;
+  box-sizing: border-box;
+  display: flex;
+  align-items: start;
+  justify-content: flex-start;
+  gap: 80px;
+  margin: 1rem 0;
+}
+.info {
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  align-items: start;
 }
