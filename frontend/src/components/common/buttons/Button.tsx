@@ -6,9 +6,10 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   rounded?: boolean;
   animated?: boolean;
   cancel?: boolean;
+  long?: boolean;
 }
 
-export const Button = ({ simple, rounded, animated, cancel, ...props }: ButtonProps) => {
+export const Button = ({ simple, rounded, animated, cancel, long, ...props }: ButtonProps) => {
   return (
     <button
       className={classNames(
@@ -16,6 +17,7 @@ export const Button = ({ simple, rounded, animated, cancel, ...props }: ButtonPr
         rounded && styles.rounded,
         animated && styles.animated,
         cancel && styles.cancel,
+        long && styles.long,
       )}
       {...props}
     >

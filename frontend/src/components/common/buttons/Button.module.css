@@ -25,6 +25,14 @@
   background-color: rgb(165, 165, 165);
 }
 
+.long {
+  min-width: 320px;
+  display: flex;
+  gap: 0.7rem;
+  justify-content: center;
+  align-items: center;
+}
+
 .animated {
   margin-top: 1rem;
   background-color: var(--main-color);

@@ -1,10 +1,20 @@
 import styles from './BusinessPage.module.css';
+import { useState } from 'react';
+import { Button } from '@/components/common/buttons/Button';
+import { SlNote } from 'react-icons/sl';
+import { BookingCalendar } from '@/components/BookingCalendar/BookingCalendar';
 // import { useParams } from 'react-router-dom';
 // import { Fa } from 'react-icons/fa';
 
-export const BusinessPage: React.FC = () => {
+export const BusinessPage = () => {
+  const [open, setOpen] = useState(false);
+
+  const openModal = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
-    <div>
+    <>
+      <BookingCalendar onOpen={open} setClose={handleClose} />
       <div className={styles.gridContainer}>
         <div className={styles.infoCard}>
           <img
@@ -35,7 +45,11 @@ export const BusinessPage: React.FC = () => {
           </div>
         </div>
         <div>
-          <div className={styles.bookApp}>Book Appointment</div>
+          {/* <div className={styles.bookApp}>Book Appointment</div> */}
+          <Button simple long onClick={openModal}>
+            <SlNote className="text-2xl" />
+            Book Appointment
+          </Button>
           <h4 className={styles.bookTitle}>Similar Business</h4>
           <div className={styles.simBusiness}>
             <div className={styles.simBusinessCard}>
@@ -57,6 +71,6 @@ export const BusinessPage: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
