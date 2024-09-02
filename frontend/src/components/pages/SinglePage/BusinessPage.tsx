@@ -34,7 +34,28 @@ export const BusinessPage: React.FC = () => {
             quas fuga! Animi, voluptatibus.
           </div>
         </div>
-        <div>4</div>
+        <div>
+          <div className={styles.bookApp}>Book Appointment</div>
+          <h4 className={styles.bookTitle}>Similar Business</h4>
+          <div className={styles.simBusiness}>
+            <div className={styles.simBusinessCard}>
+              <div className={styles.infoCardBook}>
+                <img
+                  src="https://www.pristinehome.com.au/wp-content/uploads/2020/01/15-Cleaning-Tips-from-Professional-Cleaners-3.jpg"
+                  className={styles.pageImageBook}
+                />
+                <div className={styles.infoBook}>
+                  {/* <div className={styles.businessTagBook}></div> */}
+
+                  <h3 className={styles.pageTitleBook}>House Cleaning</h3>
+                  <p className={styles.nameBook}>Jenny Wilson</p>
+
+                  <p className={styles.addressBook}>255 Grand Park Ave, New York</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

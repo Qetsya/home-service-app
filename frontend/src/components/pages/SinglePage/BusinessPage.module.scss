@@ -3,10 +3,9 @@
 }
 .gridContainer {
   display: grid;
-  grid-template-columns: 60% auto;
+  grid-template-columns: 70% 40%;
   grid-template-rows: 80px 80px;
   gap: 10px;
-  //   background-color: #2196f3;
   padding: 10px;
   margin: 5rem 5rem;
   grid-template-rows: fit-content(200px);
@@ -110,4 +109,46 @@
   font-size: 20px;
   word-spacing: 8px;
   letter-spacing: 1px;
+  width: 90%;
+}
+.bookApp {
+  background-color: #8056eb;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
+  margin-top: 3rem;
+  width: 90%;
+}
+.bookApp:hover {
+  background-color: #9270e7;
+  cursor: pointer;
+}
+.bookTitle {
+  text-align: left;
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
+}
+.infoCardBook {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  text-align: left;
+  gap: 15px;
+}
+.pageImageBook {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.pageTitleBook {
+  font-family: Roboto, sans-serif;
+  font-size: 13px;
+}
+.addressBook,
+.nameBook {
+  font-family: Roboto, sans-serif;
+  font-size: 13px;
 }
