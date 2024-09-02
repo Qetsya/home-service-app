@@ -2,21 +2,20 @@ import { useParams } from 'react-router-dom';
 import styles from './BusinessPage.module.scss';
 
 export const BusinessPage: React.FC = () => {
-  //   const { business } = useParams<{ business: string }>();
   return (
     <div>
-      {/* <h1 className={styles.title}>Business Page for {business}</h1> */}
       <div className={styles.gridContainer}>
-        <div>
+        <div className={styles.wrapper}>
           <img
-            src="https://images.squarespace-cdn.com/content/v1/58c9f49846c3c4a643f3ed82/1616085191669-33U8F12I0QY74ORHGYAZ/What+Should+A+Cleaning+Lady+Do%3F"
+            src="https://www.pristinehome.com.au/wp-content/uploads/2020/01/15-Cleaning-Tips-from-Professional-Cleaners-3.jpg"
             className={styles.pageImage}
           />
           <div className={styles.info}>
+            <button className={styles.button}>cleaning</button>
             <div className={styles.businessTag}></div>
             <h4>House Cleaning</h4>
-            <p>Address</p>
-            <p>email</p>
+            <p>255 Grand Park Ave, New York</p>
+            <p>accounts@tubeguruji.com</p>
           </div>
         </div>
         <div>2</div>
