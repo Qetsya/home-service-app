@@ -4,6 +4,7 @@ import { BusinessModel } from '@/types/BusinessModel';
 import { generatePath, useNavigate } from 'react-router-dom';
 import routes from '@/consts/routes';
 
+
 interface BusinessCardProps {
   business: BusinessModel;
 }
