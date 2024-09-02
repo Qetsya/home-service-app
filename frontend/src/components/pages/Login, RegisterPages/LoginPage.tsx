@@ -1,4 +1,4 @@
-import styles from './LoginRegister.module.scss';
+import styles from './LoginRegister.module.css';
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import routes from '@/consts/routes';

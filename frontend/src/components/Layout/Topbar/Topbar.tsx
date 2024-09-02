@@ -1,4 +1,4 @@
-import styles from './Topbar.module.scss';
+import styles from './Topbar.module.css';
 import { useContext } from 'react';
 import { UserContext } from '@/contexts/UserContext.js';
 import { useNavigate, Link } from 'react-router-dom';

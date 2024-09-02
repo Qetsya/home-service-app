@@ -1,4 +1,4 @@
-import styles from './HomePage.module.scss';
+import styles from './HomePage.module.css';
 import { Hero } from './Hero';
 import { CategoryList } from '@/components/Category/CategoryList';
 import { BusinessList } from '../../Business/BusinessList';

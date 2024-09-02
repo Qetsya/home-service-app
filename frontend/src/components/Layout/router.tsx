@@ -9,7 +9,7 @@ import { LoginPage } from '../pages/Login, RegisterPages/LoginPage';
 import { RegisterPage } from '../pages/Login, RegisterPages/RegisterPage';
 import { SearchCategoryPage } from '../pages/SearchCategoryPage/SearchCategoryPage';
 import { NotFoundPage } from '../pages/NotFoundPage/NotFoundPage';
-import { BusinessPage } from '../pages/SinglePage/BusinessPage';
+import { BusinessPage } from '../pages/BusinessPage/BusinessPage';
 
 const router = createBrowserRouter([
   {

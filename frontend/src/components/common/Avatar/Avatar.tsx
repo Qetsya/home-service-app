@@ -1,4 +1,4 @@
-import styles from './Avatar.module.scss';
+import styles from './Avatar.module.css';
 import { ReactNode, useContext } from 'react';
 import { Dropdown } from 'flowbite-react';
 import { UserContext } from '@/contexts/UserContext';

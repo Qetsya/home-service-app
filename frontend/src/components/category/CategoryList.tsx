@@ -1,4 +1,4 @@
-import styles from './CategoryList.module.scss';
+import styles from './CategoryList.module.css';
 import { CategoryCard } from './CategoryCard';
 import { useCategories } from '@/hooks/categories';
 import { Loader } from '../common/Loader';

@@ -1,4 +1,4 @@
-import styles from './SearchCategoryPage.module.scss';
+import styles from './SearchCategoryPage.module.css';
 import { useParams } from 'react-router-dom';
 import { CategoryList } from '@/components/Category/CategoryList';
 import BusinessCard from '../../Business/BusinessCard';

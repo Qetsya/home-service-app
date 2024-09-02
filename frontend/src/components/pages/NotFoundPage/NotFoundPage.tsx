@@ -1,4 +1,4 @@
-import styles from './NotFoundPage.module.scss';
+import styles from './NotFoundPage.module.css';
 import Image from '@/assets/page-not-found.webp';
 
 export const NotFoundPage = () => {

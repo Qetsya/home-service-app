@@ -1,6 +1,6 @@
-import { useParams } from 'react-router-dom';
-import styles from './BusinessPage.module.scss';
-import { Fa } from 'react-icons/fa';
+import styles from './BusinessPage.module.css';
+// import { useParams } from 'react-router-dom';
+// import { Fa } from 'react-icons/fa';
 
 export const BusinessPage: React.FC = () => {
   return (

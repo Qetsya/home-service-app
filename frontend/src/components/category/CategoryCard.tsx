@@ -1,4 +1,4 @@
-import styles from './CategoryCard.module.scss';
+import styles from './CategoryCard.module.css';
 import { generatePath, useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 

@@ -16,15 +16,15 @@
   margin-bottom: 1rem;
   font-size: 1.1rem;
   cursor: pointer;
+}
 
-  &:hover,
-  &.activeCard {
-    background-color: #f7f4fd;
-    border-color: #beaaf5;
+.card:hover,
+.activeCard {
+  background-color: #f7f4fd;
+  border-color: #beaaf5;
 
-    .title {
-      color: var(--main-color);
-    }
+  .title {
+    color: var(--main-color);
   }
 }
 

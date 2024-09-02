@@ -6,10 +6,10 @@
   border-radius: 8px;
   font-size: 1rem;
   cursor: pointer;
+}
 
-  &:hover {
-    background-color: #5b24e7;
-  }
+.simple:hover {
+  background-color: #5b24e7;
 }
 
 .rounded {
@@ -44,10 +44,11 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  &:hover {
-    box-shadow: rgba(249, 84, 255, 0.35) 0 -25px 18px -14px inset, rgba(249, 84, 255, 0.35) 0 1px 2px,
-      rgba(249, 84, 255, 0.35) 0 2px 4px, rgba(249, 84, 255, 0.35) 0 4px 8px, rgba(249, 84, 255, 0.35) 0 8px 16px,
-      rgba(249, 84, 255, 0.35) 0 16px 32px;
-    transform: scale(1.05) rotate(-1deg);
-  }
+}
+
+.animated:hover {
+  box-shadow: rgba(249, 84, 255, 0.35) 0 -25px 18px -14px inset, rgba(249, 84, 255, 0.35) 0 1px 2px,
+    rgba(249, 84, 255, 0.35) 0 2px 4px, rgba(249, 84, 255, 0.35) 0 4px 8px, rgba(249, 84, 255, 0.35) 0 8px 16px,
+    rgba(249, 84, 255, 0.35) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
 }

@@ -1,4 +1,4 @@
-import styles from './BusinessList.module.scss';
+import styles from './BusinessList.module.css';
 import BusinessCard from './BusinessCard';
 import { Loader } from '../common/Loader';
 import { useBusinesses } from '@/hooks/businesses';

@@ -1,9 +1,8 @@
-import styles from './BusinessCard.module.scss';
+import styles from './BusinessCard.module.css';
 import { Button } from '@/components/common/buttons/Button';
 import { BusinessModel } from '@/types/BusinessModel';
 import { generatePath, useNavigate } from 'react-router-dom';
 import routes from '@/consts/routes';
-
 
 interface BusinessCardProps {
   business: BusinessModel;
