@@ -1,6 +1,8 @@
 import styles from './BusinessCard.module.scss';
 import { Button } from '@/components/common/buttons/Button';
 import { BusinessModel } from '@/types/BusinessModel';
+import { generatePath, useNavigate } from 'react-router-dom';
+import routes from '@/consts/routes';
 
 interface BusinessCardProps {
   business: BusinessModel;
@@ -8,6 +10,9 @@ interface BusinessCardProps {
 
 const BusinessCard = ({ business }: BusinessCardProps) => {
   const { images, name, category, contactPerson, address } = business;
+
+  const navigate = useNavigate();
+  const pagePath = generatePath(routes.BUSINESS_PAGE, { business: name });
 
   return (
     <div className={styles.card}>
@@ -20,7 +25,9 @@ const BusinessCard = ({ business }: BusinessCardProps) => {
         <p className={styles.contactPerson}>{contactPerson}</p>
         <p className={styles.address}>{address}</p>
         <div>
-          <Button simple>Book Now</Button>
+          <Button simple onClick={() => navigate(pagePath)}>
+            Book Now
+          </Button>
         </div>
       </div>
     </div>

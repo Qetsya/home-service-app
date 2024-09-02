@@ -9,6 +9,7 @@ import { LoginPage } from '../pages/Login, RegisterPages/LoginPage';
 import { RegisterPage } from '../pages/Login, RegisterPages/RegisterPage';
 import { SearchCategoryPage } from '../pages/SearchCategoryPage/SearchCategoryPage';
 import { NotFoundPage } from '../pages/NotFoundPage/NotFoundPage';
+import { BusinessPage } from '../pages/SinglePage/BusinessPage';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: routes.SEARCH_CATEGORY,
         element: <SearchCategoryPage />,
+      },
+      {
+        path: routes.BUSINESS_PAGE,
+        element: <BusinessPage />,
       },
       {
         path: routes.NOT_FOUND,
