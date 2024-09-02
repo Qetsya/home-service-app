@@ -16,6 +16,11 @@ export default {
       },
     },
   },
+  variants: {
+    extend: {
+      opacity: ['disabled'],
+    },
+  },
   plugins: [flowbite.plugin()],
   corePlugins: { container: false, screens: false },
 };
