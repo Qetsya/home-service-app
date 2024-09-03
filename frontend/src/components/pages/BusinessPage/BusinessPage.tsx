@@ -42,7 +42,7 @@ export const BusinessPage = () => {
         </div>
         <div className="flex justify-end items-end flex-col gap-4 pr-10">
           <div className="w-14 h-11 text-white bg-[#8056eb] rounded-lg border-none hover:bg-[#9270e7] cursor-pointer ">
-            <LuUpload className="flex align-middle justify-center w-8 h-8 pt-1 ml-3  " />
+            <LuUpload className="flex  w-8 h-8 pt-2 ml-3  " />
           </div>
           <p className="text-[#8056eb] font-roboto text-lg flex ">
             <IoPersonOutline className="flex w-4 h-4 m-2" />
