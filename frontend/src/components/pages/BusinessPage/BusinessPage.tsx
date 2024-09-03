@@ -1,10 +1,8 @@
-import styles from './BusinessPage.module.css';
+// import styles from './BusinessPage.module.css';
 import { useState } from 'react';
 import { Button } from '@/components/common/buttons/Button';
 import { SlNote } from 'react-icons/sl';
 import { BookingCalendar } from '@/components/BookingCalendar/BookingCalendar';
-// import { useParams } from 'react-router-dom';
-// import { Fa } from 'react-icons/fa';
 
 export const BusinessPage = () => {
   const [open, setOpen] = useState(false);
@@ -15,28 +13,28 @@ export const BusinessPage = () => {
   return (
     <>
       <BookingCalendar onOpen={open} setClose={handleClose} />
-      <div className={styles.gridContainer}>
-        <div className={styles.infoCard}>
+      <div className="gridContainer">
+        <div className="infoCard">
           <img
             src="https://www.pristinehome.com.au/wp-content/uploads/2020/01/15-Cleaning-Tips-from-Professional-Cleaners-3.jpg"
-            className={styles.pageImage}
+            className="pageImage"
           />
-          <div className={styles.info}>
-            <div className={styles.button}>cleaning</div>
-            <div className={styles.businessTag}></div>
-            <h3 className={styles.pageTitle}>House Cleaning</h3>
-            <p className={styles.address}>255 Grand Park Ave, New York</p>
-            <p className={styles.email}>accounts@tubeguruji.com</p>
+          <div className="info">
+            <div className="button">cleaning</div>
+            <div className="businessTag"></div>
+            <h3 className="pageTitle">House Cleaning</h3>
+            <p className="address">255 Grand Park Ave, New York</p>
+            <p className="email">accounts@tubeguruji.com</p>
           </div>
         </div>
-        <div className={styles.availableTab}>
-          <button className={styles.bookingBox}>Box</button>
-          <p className={styles.avaiName}>Jenny Wilson</p>
-          <p className={styles.bookings}>Available 8:00 AM to 10PM</p>
+        <div className="availableTab">
+          <button className="bookingBox">Box</button>
+          <p className="avaiName">Jenny Wilson</p>
+          <p className="bookings">Available 8:00 AM to 10PM</p>
         </div>
-        <div className={styles.descriptionCard}>
-          <h4 className={styles.descriptionName}>Description</h4>
-          <div className={styles.descriptionText}>
+        <div className="descriptionCard">
+          <h4 className="descriptionName">Description</h4>
+          <div className="descriptionText">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla provident ipsum placeat aspernatur est
             accusamus architecto modi deleniti, ipsa vero voluptatem assumenda beatae vel illo quibusdam facere tenetur
             delectus suscipit. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa reiciendis aliquam,
@@ -45,26 +43,23 @@ export const BusinessPage = () => {
           </div>
         </div>
         <div>
-          {/* <div className={styles.bookApp}>Book Appointment</div> */}
           <Button simple long onClick={openModal}>
             <SlNote className="text-2xl" />
             Book Appointment
           </Button>
-          <h4 className={styles.bookTitle}>Similar Business</h4>
-          <div className={styles.simBusiness}>
-            <div className={styles.simBusinessCard}>
-              <div className={styles.infoCardBook}>
+          <h4 className="bookTitle">Similar Business</h4>
+          <div className="simBusiness">
+            <div className="simBusinessCard">
+              <div className="infoCardBook">
                 <img
                   src="https://www.pristinehome.com.au/wp-content/uploads/2020/01/15-Cleaning-Tips-from-Professional-Cleaners-3.jpg"
-                  className={styles.pageImageBook}
+                  className="pageImageBook"
                 />
-                <div className={styles.infoBook}>
-                  {/* <div className={styles.businessTagBook}></div> */}
+                <div className="infoBook">
+                  <h3 className="pageTitleBook">House Cleaning</h3>
+                  <p className="nameBook">Jenny Wilson</p>
 
-                  <h3 className={styles.pageTitleBook}>House Cleaning</h3>
-                  <p className={styles.nameBook}>Jenny Wilson</p>
-
-                  <p className={styles.addressBook}>255 Grand Park Ave, New York</p>
+                  <p className="addressBook">255 Grand Park Ave, New York</p>
                 </div>
               </div>
             </div>
