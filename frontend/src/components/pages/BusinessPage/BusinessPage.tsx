@@ -6,6 +6,7 @@ import { FiMapPin } from 'react-icons/fi';
 import { HiOutlineMail } from 'react-icons/hi';
 import { LuUpload } from 'react-icons/lu';
 import { IoPersonOutline } from 'react-icons/io5';
+import { GoClock } from 'react-icons/go';
 import { BookingCalendar } from '@/components/BookingCalendar/BookingCalendar';
 
 export const BusinessPage = () => {
@@ -25,7 +26,7 @@ export const BusinessPage = () => {
           />
           <div className="flex justify-start flex-col items-start gap-20;">
             <div className=" py-1 px-3 rounded-full border-none cursor-pointer text-[#8056eb] bg-[#e5ddfb] text-sm w-20 text-center ;">
-              cleaning
+              Cleaning
             </div>
             <div className="businessTag"></div>
             <h3 className="text-3xl font-roboto flex items-start justify-start my-5 gap-5 font-bold">House Cleaning</h3>
@@ -39,15 +40,18 @@ export const BusinessPage = () => {
             </p>
           </div>
         </div>
-        <div className="flex justify-end items-end flex-col gap-4">
+        <div className="flex justify-end items-end flex-col gap-4 pr-10">
           <div className="w-14 h-11 text-white bg-[#8056eb] rounded-lg border-none hover:bg-[#9270e7] cursor-pointer ">
             <LuUpload className="flex align-middle justify-center w-8 h-8 pt-1 ml-3  " />
           </div>
-          <p className="text-[#8056eb] font-roboto text-lg flex flex-row align-middle justify-center;">
+          <p className="text-[#8056eb] font-roboto text-lg flex ">
             <IoPersonOutline className="flex w-4 h-4 m-2" />
             Jenny Wilson
           </p>
-          <p className="text-[#a8a8a8] font-roboto text-xl mb-24 ;">Available 8:00 AM to 10PM</p>
+          <p className="text-[#a8a8a8] font-roboto text-xl mb-24 flex flex-row ;">
+            <GoClock className="mr-2" />
+            Available 8:00 AM to 10PM
+          </p>
         </div>
         <div className="flex font-roboto items-start flex-col gap-5 bg-gradient-to-b from-white to-gray-200 h-full w-full pl-10">
           <h4 className="font-roboto text-2xl font-bold ">Description</h4>
@@ -73,16 +77,16 @@ export const BusinessPage = () => {
                   className="w-20 h-28 rounded-2xl object-cover ;"
                 />
                 <div className="flex flex-col ">
-                  <h3 className="font-roboto text-xs;">House Cleaning</h3>
+                  <h3 className="font-roboto font-bold text-l ;">House Cleaning</h3>
                   <p
-                    className="font-roboto text-xs;
+                    className="text-[#8056eb] font-roboto text-base ;
 }"
                   >
                     Jenny Wilson
                   </p>
 
                   <p
-                    className="font-roboto text-xs;
+                    className="font-roboto text-base text-[#a8a8a8] ;
 }"
                   >
                     255 Grand Park Ave, New York
