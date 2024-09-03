@@ -6,7 +6,6 @@
   padding: 10px;
   margin: 5rem 5rem;
   grid-template-rows: fit-content(200px);
-  /* dubliuojasi grid-template-rows */
   width: 80%;
 }
 .gridContainer > div {
@@ -27,7 +26,6 @@
   justify-content: space-evenly;
 }
 .button {
-  /* cleaning rodos ne button? */
   padding: 0.4rem 0.8rem;
   border-radius: 30px;
   border-style: none;
@@ -47,7 +45,6 @@
   margin: 5px 0;
 }
 .pageTitle {
-  /* margin-top: 1rem; */
   font-size: 2.2rem;
   font-family: Roboto, sans-serif;
   box-sizing: border-box;
