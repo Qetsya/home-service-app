@@ -14,7 +14,7 @@ export const BusinessPage = () => {
 
   return (
     <>
-      <BookingCalendar onOpen={open} setClose={handleClose} />
+      <BookingCalendar businessId={''} onOpen={open} setClose={handleClose} />
       <div className={styles.gridContainer}>
         <div className={styles.infoCard}>
           <img

@@ -1,0 +1,83 @@
+import styles from './MyBookingsCard.module.css';
+import moment from 'moment';
+import { useState, useEffect } from 'react';
+import { BusinessModel } from '@/types/BusinessModel';
+import { Loader } from '@/components/common/Loader';
+import { useBusinessById } from '@/hooks/businesses';
+import { RxPerson } from 'react-icons/rx';
+import { SlLocationPin } from 'react-icons/sl';
+import { LuCalendar } from 'react-icons/lu';
+import { FiClock } from 'react-icons/fi';
+
+interface BusinessCardProps {
+  businessId: string;
+  bookingDate: string;
+  bookingTime: string;
+}
+
+export const MyBookingsCard = ({ businessId, bookingDate, bookingTime }: BusinessCardProps) => {
+  const { mutateAsync: getBusinessById } = useBusinessById();
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [business, setBusiness] = useState<BusinessModel | null>(null);
+
+  const fetchBusiness = async () => {
+    setLoading(true);
+    try {
+      const response = await getBusinessById(businessId);
+      if (response) {
+        setBusiness(response);
+      } else {
+        console.error(`Business by id ${businessId} not found`);
+      }
+    } catch {
+      setError('Something went wrong, please reload the page');
+    }
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    fetchBusiness();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return (
+    <>
+      {loading && (
+        <div className="flex justify-center">
+          <Loader size="70" />
+        </div>
+      )}
+      {business ? (
+        <div className={styles.container}>
+          <img src={business?.images[0].url} className={styles.image} alt="businessPicture" />
+          <div className={styles.info}>
+            <h3 className={styles.title}>{business?.name}</h3>
+            <div className={styles.box}>
+              <RxPerson className="text-lg text-main-color" />
+              <p className={styles.contact}>{business?.contactPerson}</p>
+            </div>
+            <div className={styles.box}>
+              <SlLocationPin className="text-xl text-main-color" />
+              <p>{business?.address}</p>
+            </div>
+            <div className={styles.box}>
+              <LuCalendar className="text-lg text-main-color" />
+              <p>
+                Service on: <span className={styles.date}>{moment(bookingDate).format('DD-MMM-yyyy')}</span>
+              </p>
+            </div>
+            <div className={styles.box}>
+              <FiClock className="text-lg text-main-color" />
+              <p>
+                Service on: <span className={styles.time}>{bookingTime}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      ) : (
+        error && <p>{error}</p>
+      )}
+    </>
+  );
+};

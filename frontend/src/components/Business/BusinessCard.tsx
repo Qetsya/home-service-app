@@ -9,10 +9,10 @@ interface BusinessCardProps {
 }
 
 const BusinessCard = ({ business }: BusinessCardProps) => {
-  const { images, name, category, contactPerson, address } = business;
+  const { images, name, category, contactPerson, address, _id } = business;
 
   const navigate = useNavigate();
-  const pagePath = generatePath(routes.BUSINESS_PAGE, { business: name });
+  const pagePath = generatePath(routes.BUSINESS_PAGE, { id: _id });
 
   return (
     <div className={styles.card}>
