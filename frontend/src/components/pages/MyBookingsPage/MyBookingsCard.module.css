@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  color: grey;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.image {
+  height: 140px;
+  width: 120px;
+  object-fit: cover;
+  border-radius: 0.7rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.title {
+  font-weight: 800;
+  color: black;
+}
+
+.contact {
+  color: var(--main-color);
+}
+
+.date,
+.time {
+  color: black;
+}
+
+.box {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}

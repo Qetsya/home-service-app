@@ -9,11 +9,12 @@ import { calendarTheme } from './calendarTheme';
 import { TimePicker } from './TimePicker';
 
 interface Props {
+  businessId: string;
   onOpen: boolean;
   setClose: () => void;
 }
 
-export const BookingCalendar = ({ onOpen, setClose }: Props) => {
+export const BookingCalendar = ({ businessId, onOpen, setClose }: Props) => {
   const { mutateAsync: createBooking } = useCreateBooking();
   const [isOpen, setIsOpen] = useState(false);
   const [date, setDate] = useState('');
@@ -25,7 +26,7 @@ export const BookingCalendar = ({ onOpen, setClose }: Props) => {
     setClose();
   };
 
-  const handleDate = (value: Date) => setDate(value.toDateString());
+  const handleDateChange = (value: Date) => setDate(value.toDateString());
 
   const getMaxDate = () => {
     const now = new Date();
@@ -35,15 +36,16 @@ export const BookingCalendar = ({ onOpen, setClose }: Props) => {
     return new Date(year, month - 1, day);
   };
 
-  const getTime = (time: string) => setTime(time);
+  const handleTimeChange = (time: string) => setTime(time);
 
   const bookAppointment = async () => {
+    const user = JSON.parse(localStorage['user'].toString());
     const booking: BookingModel = {
-      businessId: '',
+      businessId: businessId,
       date: date,
       time: time,
-      userEmail: '',
-      userName: '',
+      userEmail: user.email,
+      userName: user.name,
       status: 'pending',
     };
     try {
@@ -70,7 +72,7 @@ export const BookingCalendar = ({ onOpen, setClose }: Props) => {
         <p className="mt-2 text-base text-gray-500">Select date and Time slot to book on service</p>
         <p className="my-4 font-semibold text-gray-600 ">Select Date</p>
         <Datepicker
-          onSelectedDateChanged={handleDate}
+          onSelectedDateChanged={handleDateChange}
           theme={calendarTheme}
           inline
           weekStart={0}
@@ -83,7 +85,7 @@ export const BookingCalendar = ({ onOpen, setClose }: Props) => {
       </Drawer.Items>
 
       <Drawer.Items>
-        <TimePicker bookTime={getTime} />
+        <TimePicker bookTime={handleTimeChange} />
       </Drawer.Items>
       <Drawer.Items>
         {submitError && <p className="text-red-700 mb-3">{submitError}</p>}
