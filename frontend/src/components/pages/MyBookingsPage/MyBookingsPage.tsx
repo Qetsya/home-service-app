@@ -6,9 +6,12 @@ import { MyBookingsCard } from './MyBookingsCard';
 import { BookingModel } from '@/types/BookingModel';
 import { Button } from '@/components/common/buttons/Button';
 import { Loader } from '@/components/common/Loader';
+import { useLocalStorage } from '@uidotdev/usehooks';
+import { User } from '@/types/User';
 
 export const MyBookingsPage = () => {
   const { mutateAsync: getBookings } = useGetBookings();
+  const [user] = useLocalStorage<User>('user');
   const [bookings, setBookings] = useState<BookingModel[]>([]);
   const [completedBookings, setCompletedBookings] = useState<BookingModel[]>([]);
   const [error, setError] = useState('');
@@ -20,7 +23,6 @@ export const MyBookingsPage = () => {
     setError('');
     setLoading(true);
     try {
-      const user = JSON.parse(localStorage['user'].toString());
       const response = await getBookings(user.email);
       if (response.length > 0) {
         const booked = response.filter((item) => item.status !== 'completed');
@@ -31,12 +33,12 @@ export const MyBookingsPage = () => {
         setError('You have no booked services yet!');
       }
     } catch {
-      setError('Something went wrong, please reloasd the page');
+      setError('Something went wrong, please reload the page');
     }
     setLoading(false);
   };
 
-  const handleBooked = async () => {
+  const handleBooked = () => {
     setActiveBookedButton(true);
     setActiveCompletedButton(false);
   };
@@ -84,7 +86,7 @@ export const MyBookingsPage = () => {
         {activeBookedButton && (
           <>
             {bookings.map((booking) => {
-              if (booking.businessId === null || booking.businessId === '') return;
+              if (!booking.businessId) return;
               return (
                 <div className={styles.bookingContainer} key={booking.businessId}>
                   <MyBookingsCard
@@ -100,7 +102,7 @@ export const MyBookingsPage = () => {
         {activeCompletedButton && (
           <>
             {completedBookings.map((booking) => {
-              if (booking.businessId === null || booking.businessId === '') return;
+              if (!booking.businessId) return;
               return (
                 <div className={styles.bookingContainer} key={booking.businessId}>
                   <MyBookingsCard

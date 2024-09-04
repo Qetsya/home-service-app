@@ -3,7 +3,6 @@ import { getBusinesses } from '@/api/getBusinesses';
 import { getBusinessById } from '@/api/getBusinessById';
 
 const BUSINESS_KEY = 'business';
-const BUSINESS_BY_ID = 'businessById';
 
 export const useBusinesses = () => {
   return useQuery({
@@ -17,6 +16,6 @@ export const useBusinessById = () => {
 
   return useMutation({
     mutationFn: getBusinessById,
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: [BUSINESS_BY_ID] }),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: [BUSINESS_KEY] }),
   });
 };

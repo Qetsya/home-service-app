@@ -3,8 +3,6 @@ import { getBookings } from '@/api/getBookings';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 const BOOKING = 'booking';
-const GET_BOOKINGS = 'getBookings';
-// const CATEGORIES_KEY = 'categories';
 
 export const useCreateBooking = () => {
   const queryClient = useQueryClient();
@@ -20,13 +18,6 @@ export const useGetBookings = () => {
 
   return useMutation({
     mutationFn: getBookings,
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: [GET_BOOKINGS] }),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: [BOOKING] }),
   });
 };
-
-// export const useCategories = () => {
-//   return useQuery({
-//     queryKey: [CATEGORIES_KEY],
-//     queryFn: getCategories,
-//   });
-// };
