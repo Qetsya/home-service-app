@@ -10,7 +10,7 @@ export const TimePicker = ({ bookTime }: TimePickerProps) => {
 
   const getTimePickerId = (time: string) => 'time' + time.replace(':', '-').replace(' ', '-');
 
-  const handleTime = (value: SyntheticEvent<HTMLLabelElement, MouseEvent>) => {
+  const handleChange = (value: SyntheticEvent<HTMLLabelElement, MouseEvent>) => {
     const time = value.currentTarget.innerText;
     setTime(time);
     bookTime(time);
@@ -33,7 +33,7 @@ export const TimePicker = ({ bookTime }: TimePickerProps) => {
               />
               <label
                 htmlFor={getTimePickerId(time.time)}
-                onClick={handleTime}
+                onClick={handleChange}
                 className={`
                 inline-flex items-center justify-center w-full px-2 py-2 text-sm
                  font-medium text-center bg-white border 

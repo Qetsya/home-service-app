@@ -10,6 +10,7 @@ import { RegisterPage } from '../pages/Login, RegisterPages/RegisterPage';
 import { SearchCategoryPage } from '../pages/SearchCategoryPage/SearchCategoryPage';
 import { NotFoundPage } from '../pages/NotFoundPage/NotFoundPage';
 import { BusinessPage } from '../pages/BusinessPage/BusinessPage';
+import { MyBookingsPage } from '../pages/MyBookingsPage/MyBookingsPage';
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: routes.BUSINESS_PAGE,
         element: <BusinessPage />,
+      },
+      {
+        path: routes.MY_BOOKINGS_PAGE,
+        element: <MyBookingsPage />,
       },
       {
         path: routes.NOT_FOUND,

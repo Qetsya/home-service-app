@@ -17,8 +17,8 @@ export const BusinessPage = () => {
 
   return (
     <>
-      <BookingCalendar onOpen={open} setClose={handleClose} />
-      <div className="grid grid-cols-[65%,35%] p-2 m-[5rem_5rem] grid-rows-[fit-content(200px) ">
+      <BookingCalendar businessId={''} onOpen={open} setClose={handleClose} />
+       <div className="grid grid-cols-[65%,35%] p-2 m-[5rem_5rem] grid-rows-[fit-content(200px) ">
         <div className="flex justify-left gap-7 ;">
           <img
             src="https://www.pristinehome.com.au/wp-content/uploads/2020/01/15-Cleaning-Tips-from-Professional-Cleaners-3.jpg"

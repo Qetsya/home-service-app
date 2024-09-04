@@ -5,8 +5,9 @@ const routes = {
   LOGIN_PAGE: '/login',
   REGISTER_PAGE: '/register',
   SEARCH_CATEGORY: '/search/:category',
+  BUSINESS_PAGE: '/businessPage/:id',
+  MY_BOOKINGS_PAGE: '/myBookings',
   NOT_FOUND: '/*',
-  BUSINESS_PAGE: '/businessPage',
 };
 
 export default routes;
