@@ -1,5 +1,5 @@
-// import styles from './BusinessPage.module.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { Button } from '@/components/common/buttons/Button';
 import { SlNote } from 'react-icons/sl';
 import { FiMapPin } from 'react-icons/fi';
@@ -8,35 +8,54 @@ import { LuUpload } from 'react-icons/lu';
 import { IoPersonOutline } from 'react-icons/io5';
 import { GoClock } from 'react-icons/go';
 import { BookingCalendar } from '@/components/BookingCalendar/BookingCalendar';
+import { BusinessModel } from '@/types/BusinessModel';
+import { getBusinessById } from '@/api/getBusinessById';
 
 export const BusinessPage = () => {
   const [open, setOpen] = useState(false);
+
+  const { id } = useParams();
+  const [business, setBusiness] = useState<BusinessModel | null>(null);
+
+  useEffect(() => {
+    const fetchBusiness = async () => {
+      if (id) {
+        const data = await getBusinessById(id);
+        setBusiness(data);
+      }
+    };
+    fetchBusiness();
+  }, [id]);
+
+  if (!business) {
+    return <div>Loading...</div>;
+  }
 
   const openModal = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     <>
-      <BookingCalendar businessId={''} onOpen={open} setClose={handleClose} />
-       <div className="grid grid-cols-[65%,35%] p-2 m-[5rem_5rem] grid-rows-[fit-content(200px) ">
+      <BookingCalendar businessId={'business.id'} onOpen={open} setClose={handleClose} />
+      <div className="grid grid-cols-[65%,35%] p-2 m-[5rem_5rem] grid-rows-[fit-content(200px) ">
         <div className="flex justify-left gap-7 ;">
           <img
-            src="https://www.pristinehome.com.au/wp-content/uploads/2020/01/15-Cleaning-Tips-from-Professional-Cleaners-3.jpg"
+            src={business.images[0].url}
+            alt={business.name}
             className="h-[150px] w-[150px] rounded-full object-cover ml-10 pl-10;"
           />
           <div className="flex justify-start flex-col items-start gap-20;">
-            <div className=" py-1 px-3 rounded-full border-none cursor-pointer text-[#8056eb] bg-[#e5ddfb] text-sm w-20 text-center ;">
-              Cleaning
+            <div className=" py-1 px-3 rounded-full border-none cursor-pointer text-[#8056eb] bg-[#e5ddfb] text-sm w-20 text-center ; ">
+              {business.category}
             </div>
-            <div className="businessTag"></div>
             <h3 className="text-3xl font-roboto flex items-start justify-start my-5 gap-5 font-bold">House Cleaning</h3>
             <p className="text-[#a8a8a8] font-roboto text-xl my-1 flex gap-2">
               <FiMapPin />
-              255 Grand Park Ave, New York
+              {business.contactPerson}{' '}
             </p>
             <p className="text-[#a8a8a8] font-roboto text-xl my-1 mb-20 flex gap-2 ">
               <HiOutlineMail />
-              accounts@tubeguruji.com
+              {business.email}
             </p>
           </div>
         </div>
