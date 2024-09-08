@@ -1,4 +1,4 @@
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import { getBusinesses } from '@/api/getBusinesses';
 import { getBusinessById } from '@/api/getBusinessById';
 
@@ -11,11 +11,9 @@ export const useBusinesses = () => {
   });
 };
 
-export const useBusinessById = () => {
-  const queryClient = useQueryClient();
-
-  return useMutation({
-    mutationFn: getBusinessById,
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: [BUSINESS_KEY] }),
+export const useBusinessById = (id: string) => {
+  return useQuery({
+    queryKey: [BUSINESS_KEY],
+    queryFn: () => getBusinessById(id),
   });
 };

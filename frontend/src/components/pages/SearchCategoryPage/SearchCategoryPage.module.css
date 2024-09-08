@@ -5,11 +5,14 @@
 }
 
 .title {
+  text-transform: capitalize;
   margin-bottom: 2rem;
+  font-weight: 600;
 }
 
 .categoryTitle {
   color: var(--main-color);
+  font-weight: 600;
 }
 
 .grid {

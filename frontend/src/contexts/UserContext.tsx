@@ -1,7 +1,6 @@
 import { createContext, PropsWithChildren } from 'react';
 import { useLocalStorage } from '@uidotdev/usehooks';
 import { User, UserResponse } from '@/types/User';
-
 interface UserContextType {
   user: User | null;
   isLoggedIn: boolean;

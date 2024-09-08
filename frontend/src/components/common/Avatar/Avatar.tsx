@@ -12,6 +12,11 @@ export const Avatar = ({ children }: Props) => {
   const userContext = useContext(UserContext);
   const navigate = useNavigate();
 
+  const logout = () => {
+    userContext?.logout();
+    navigate(routes.HOME);
+  };
+
   return (
     <div className={styles.container}>
       <Dropdown
@@ -25,7 +30,7 @@ export const Avatar = ({ children }: Props) => {
         </Dropdown.Item>
         <Dropdown.Divider />
         <Dropdown.Item onClick={() => navigate(routes.MY_BOOKINGS_PAGE)}>My Bookings</Dropdown.Item>
-        <Dropdown.Item onClick={() => userContext?.logout()}>Logout</Dropdown.Item>
+        <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
       </Dropdown>
     </div>
   );

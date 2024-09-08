@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Button } from '@/components/common/buttons/Button';
 import { SlNote } from 'react-icons/sl';
@@ -10,8 +10,11 @@ import { GoClock } from 'react-icons/go';
 import { BookingCalendar } from '@/components/BookingCalendar/BookingCalendar';
 import { BusinessModel } from '@/types/BusinessModel';
 import { getBusinessById } from '@/api/getBusinessById';
+import { UserContext } from '@/contexts/UserContext';
+import { enqueueSnackbar } from 'notistack';
 
 export const BusinessPage = () => {
+  const user = useContext(UserContext);
   const [open, setOpen] = useState(false);
 
   const { id } = useParams();
@@ -21,7 +24,6 @@ export const BusinessPage = () => {
     const fetchBusiness = async () => {
       if (id) {
         const data = await getBusinessById(id);
-        console.log(data);
         setBusiness(data);
       }
     };
@@ -31,8 +33,13 @@ export const BusinessPage = () => {
   if (!business) {
     return <div>Loading...</div>;
   }
-
-  const openModal = () => setOpen(true);
+  const openModal = () => {
+    if (!user?.isLoggedIn) {
+      enqueueSnackbar('You need to be logged in');
+    } else {
+      setOpen(true);
+    }
+  };
   const handleClose = () => setOpen(false);
 
   return (

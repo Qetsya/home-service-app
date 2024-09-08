@@ -45,7 +45,7 @@ export const LoginPage = () => {
       <Formik initialValues={loginFormInitialValues} validationSchema={loginValidationSchema} onSubmit={handleSubmit}>
         {({ isSubmitting }) => (
           <Form className={`${styles.container} sm:min-w-96`}>
-            <h2>Login</h2>
+            <h2 className="font-bold">Login</h2>
             <FormikInput type="email" placeholder="Email" name="email" />
             <FormikInput type="password" placeholder="Password" name="password" />
 

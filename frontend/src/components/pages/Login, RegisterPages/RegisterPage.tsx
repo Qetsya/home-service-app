@@ -47,7 +47,7 @@ export const RegisterPage = () => {
       >
         {({ isSubmitting }) => (
           <Form className={`${styles.container} sm:min-w-96`}>
-            <h2>Register</h2>
+            <h2 className="font-bold">Register</h2>
             <FormikInput name="name" type="text" placeholder="Name" />
             <FormikInput name="age" type="number" placeholder="Age" />
             <FormikInput name="email" type="email" placeholder="Email" />

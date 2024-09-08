@@ -18,7 +18,7 @@ export const SearchCategoryPage = () => {
         <CategoryList />
       </div>
       <div className={`${styles.rightSide} sm:flex-2`}>
-        <h2 className={styles.title}>Cleaning</h2>
+        <h2 className={styles.title}>{category}</h2>
         <div className={`${styles.grid} lg:grid-cols-3`}>
           {isError && 'Something went wrong'}
           {isLoading ? (

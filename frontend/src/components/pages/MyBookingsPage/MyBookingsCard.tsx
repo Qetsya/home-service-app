@@ -1,7 +1,5 @@
 import styles from './MyBookingsCard.module.css';
 import moment from 'moment';
-import { useState, useEffect } from 'react';
-import { BusinessModel } from '@/types/BusinessModel';
 import { Loader } from '@/components/common/Loader';
 import { useBusinessById } from '@/hooks/businesses';
 import { RxPerson } from 'react-icons/rx';
@@ -16,39 +14,18 @@ interface BusinessCardProps {
 }
 
 export const MyBookingsCard = ({ businessId, bookingDate, bookingTime }: BusinessCardProps) => {
-  const { mutateAsync: getBusinessById } = useBusinessById();
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [business, setBusiness] = useState<BusinessModel | null>(null);
-
-  const fetchBusiness = async () => {
-    setLoading(true);
-    try {
-      const response = await getBusinessById(businessId);
-      if (response) {
-        setBusiness(response);
-      } else {
-        console.error(`Business by id ${businessId} not found`);
-      }
-    } catch {
-      setError('Something went wrong, please reload the page');
-    }
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    fetchBusiness();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const { data, isLoading, error } = useBusinessById(businessId);
+  const business = data;
 
   return (
     <>
-      {loading && (
+      {isLoading && (
         <div className="flex justify-center">
           <Loader size="70" />
         </div>
       )}
-      {business ? (
+      {error && <p>Something went wrong, please reload the page</p>}
+      {!isLoading && (
         <div className={styles.container}>
           <img src={business?.images[0].url} className={styles.image} alt="businessPicture" />
           <div className={styles.info}>
@@ -75,8 +52,6 @@ export const MyBookingsCard = ({ businessId, bookingDate, bookingTime }: Busines
             </div>
           </div>
         </div>
-      ) : (
-        error && <p>{error}</p>
       )}
     </>
   );
