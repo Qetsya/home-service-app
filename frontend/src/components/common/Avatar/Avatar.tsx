@@ -22,7 +22,7 @@ export const Avatar = ({ children }: Props) => {
       <Dropdown
         className="w-36 "
         label=""
-        dismissOnClick={false}
+        dismissOnClick={true}
         renderTrigger={() => <div className={styles.avatar}>{children}</div>}
       >
         <Dropdown.Item>

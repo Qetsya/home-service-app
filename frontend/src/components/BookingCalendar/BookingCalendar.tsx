@@ -7,14 +7,17 @@ import { BookingModel } from '@/types/BookingModel';
 import { enqueueSnackbar } from 'notistack';
 import { calendarTheme } from './calendarTheme';
 import { TimePicker } from './TimePicker';
+import { User } from '@/types/User';
+import { useLocalStorage } from '@uidotdev/usehooks';
 
 interface Props {
-  businessId: string;
+  businessId?: string;
   onOpen: boolean;
   setClose: () => void;
 }
 
 export const BookingCalendar = ({ businessId, onOpen, setClose }: Props) => {
+  const [user] = useLocalStorage<User>('user');
   const { mutateAsync: createBooking } = useCreateBooking();
   const [isOpen, setIsOpen] = useState(false);
   const [date, setDate] = useState('');
@@ -39,9 +42,8 @@ export const BookingCalendar = ({ businessId, onOpen, setClose }: Props) => {
   const handleTimeChange = (time: string) => setTime(time);
 
   const bookAppointment = async () => {
-    const user = JSON.parse(localStorage['user'].toString());
     const booking: BookingModel = {
-      businessId: businessId,
+      businessId: businessId || '',
       date: date,
       time: time,
       userEmail: user.email,
@@ -49,10 +51,9 @@ export const BookingCalendar = ({ businessId, onOpen, setClose }: Props) => {
       status: 'pending',
     };
     try {
-      const response = await createBooking(booking);
+      await createBooking(booking);
       enqueueSnackbar('Appointment booked!');
       setIsOpen(false);
-      console.log(response);
     } catch {
       setSubmitError('Something went wrong. Please try again');
     }

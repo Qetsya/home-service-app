@@ -13,7 +13,7 @@ export const useBusinesses = () => {
 
 export const useBusinessById = (id: string) => {
   return useQuery({
-    queryKey: [BUSINESS_KEY],
+    queryKey: [BUSINESS_KEY + 'ById' + id],
     queryFn: () => getBusinessById(id),
   });
 };
