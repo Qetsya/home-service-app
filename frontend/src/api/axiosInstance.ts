@@ -1,7 +1,7 @@
 import axios, { AxiosError, AxiosRequestConfig } from 'axios';
+const { PROD } = import.meta.env;
 
-const PROD = false;
-const baseURL = PROD ? 'PROD_LINK_TODO' : 'http://localhost:3000/';
+const baseURL = PROD ? 'https://home-service-app-vercel.vercel.app/' : 'http://localhost:3000/';
 
 const config: AxiosRequestConfig = {
   baseURL,
