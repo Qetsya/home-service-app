@@ -1,9 +1,9 @@
 import styles from './SearchCategoryPage.module.css';
 import { useParams } from 'react-router-dom';
-import { CategoryList } from '@/components/Category/CategoryList';
+import { CategoryList } from '../../Category/CategoryList';
 import BusinessCard from '../../Business/BusinessCard';
-import { useBusinesses } from '@/hooks/businesses';
-import { Loader } from '@/components/common/Loader';
+import { useBusinesses } from '../../../hooks/businesses';
+import { Loader } from '../../../components/common/Loader';
 import classNames from 'classnames';
 
 export const SearchCategoryPage = () => {
