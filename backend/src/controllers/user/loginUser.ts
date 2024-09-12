@@ -22,6 +22,7 @@ export const loginUser = async (req: Request, res: Response) => {
     const userWithoutPassword = await User.findById(user._id).select('-password');
     return res.status(200).json({ token, user: userWithoutPassword });
   } catch (error) {
-    return res.status(500).json({ message: 'Error logging in.', error: error.message });
+    console.log(error);
+    return res.status(500).json({ message: 'Error logging in.', error: (error as Error).message });
   }
 };

@@ -6,6 +6,6 @@ export const updateBusiness = async (req: Request, res: Response) => {
     const updatedBusiness = await Business.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.json(updatedBusiness);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error: (error as Error).message });
   }
 };

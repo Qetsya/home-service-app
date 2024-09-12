@@ -6,6 +6,6 @@ export const getBookings = async (req: Request, res: Response) => {
     const bookings = await Booking.find({ userEmail: req.params.email });
     res.json(bookings);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error: (error as Error).message });
   }
 };

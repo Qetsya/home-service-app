@@ -6,6 +6,6 @@ export const getBusinessesByCategory = async (req: Request, res: Response) => {
     const businesses = await Business.find(req.params);
     res.json(businesses);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error: (error as Error).message });
   }
 };

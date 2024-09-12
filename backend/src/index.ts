@@ -1,12 +1,12 @@
 import express from 'express';
 import cors from 'cors';
 
-import { businessRouter } from './src/routes/businessRouter';
-import { bookingRouter } from './src/routes/bookingRouter';
-import { categoryRouter } from './src/routes/categoriesRouter';
+import { businessRouter } from './routes/businessRouter';
+import { bookingRouter } from './routes/bookingRouter';
+import { categoryRouter } from './routes/categoriesRouter';
 import { PORT, connectToDb } from './db';
 
-import { authRouter } from './src/routes/authRouter';
+import { authRouter } from './routes/authRouter';
 
 const app = express();
 

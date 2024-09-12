@@ -6,6 +6,6 @@ export const getBusinessesById = async (req: Request, res: Response) => {
     const business = await Business.findById(req.params.id);
     res.json(business);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error: (error as Error).message });
   }
 };

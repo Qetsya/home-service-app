@@ -7,6 +7,6 @@ export const addBusiness = async (req: Request, res: Response) => {
     const savedBusiness = await newBusiness.save();
     res.status(201).json(savedBusiness);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error: (error as Error).message });
   }
 };

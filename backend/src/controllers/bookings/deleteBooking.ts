@@ -6,6 +6,6 @@ export const deleteBooking = async (req: Request, res: Response) => {
     const deletedBooking = await Booking.findByIdAndDelete(req.params.id);
     res.json(deletedBooking);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error: (error as Error).message });
   }
 };

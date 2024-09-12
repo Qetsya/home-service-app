@@ -17,6 +17,6 @@ export const registerUser = async (req: Request, res: Response) => {
     const userWithoutPassword = await User.findById(newUser._id).select('-password');
     return res.status(200).json({ token, user: userWithoutPassword });
   } catch (error) {
-    return res.status(500).json({ message: 'Error registering new user.', error: error.message });
+    return res.status(500).json({ message: 'Error registering new user.', error: (error as Error).message });
   }
 };
