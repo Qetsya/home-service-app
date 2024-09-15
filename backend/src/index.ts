@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json({ limit: '50mb' }));
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL ?? 'http://localhost:5173',
+    origin: 'https://home-service-app-frontend.vercel.app' ?? 'http://localhost:5173',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
   }),
